@@ -1,0 +1,41 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                  <div class="image" align="center" style="background-color: white">
+                  <%= image_tag("logos/#{@logocompany}",size: "100x100", :alt => "BlastDoor") %>
+                  </div>
+                </div>
+
+                <div class="logo-element">
+                  <%= image_tag("logos/blastdoorsinblanco.png",size: "100x100", :alt => "BlastDoor") %>
+
+                </div>
+            </li>
+            <li class="<%= 'active' if current_page?('/home/index') %>">
+                <%= link_to "/home/index",html_options = {:class => "btn btn-primary custom-btm"}  do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
+                <% end %>
+            </li>
+          <li class="<%= 'active' if current_page?('/metricas/get') %>">
+          <%= link_to "/metricas/get",html_options = {:class => "btn btn-primary"}  do %>
+            <i class="fa fa-laptop"></i> <span class="nav-label">Metricas</span>
+          <% end %>
+        </li>
+          <li class="<%= 'active' if current_page?('/puertas/get') %>">
+            <%= link_to "/puertas/get",html_options = {:class => "btn btn-primary"}  do %>
+              <i class="fa fa-laptop"></i> <span class="nav-label">Puertas</span>
+            <% end %>
+
+          </li>
+          <li class="<%= 'active' if current_page?('/usuarios/get') %>">
+            <%= link_to "/usuarios/get",html_options = {:class => "btn btn-primary"}  do %>
+              <i class="fa fa-laptop"></i> <span class="nav-label">Usuarios</span>
+            <% end %>
+
+          </li>
+        </ul>
+
+    </div>
+</nav>

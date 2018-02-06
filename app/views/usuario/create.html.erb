@@ -1,0 +1,57 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-sm-4">
+    <ol class="breadcrumb">
+      <li>
+        <a href="<%= url_for :controller => 'home', :action => 'index' %>">BlastDoor</a>/<a href="<%= url_for :controller => 'usuarios', :action => 'get' %>">Usuarios</a>/<a href="<%= url_for :controller => 'usuario', :action => 'create' %>">BlastDoor</a>
+      </li>
+
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeIn">
+  <div class="row">
+
+        <div class="ibox-content">
+          <form id="" class="" action="#" method="get" enctype="multipart/form-data">
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Nombre</label>
+
+              <div class="col-lg-10">
+                <input type="text" placeholder="Nombre" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Apellido</label>
+
+              <div class="col-lg-10"><input type="text" placeholder="apellido" class="form-control"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Correo electronico</label>
+
+              <div class="col-lg-10"><input type="email" placeholder="email" class="form-control"></div>
+
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Nª Telefonico</label>
+
+              <div class="col-lg-10"><input type="tel" placeholder="Telefono" class="form-control"></div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 control-label">Cargo</label>
+
+              <div class="col-lg-10"><input type="text" placeholder="Cargo" class="form-control"></div>
+            </div>
+            <input type="file" accept="image/*" onchange="loadFile(event)">
+            <img id="output" height="100px" width="100px"/>
+            <input type="submit">
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
