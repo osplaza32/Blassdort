@@ -1,0 +1,2 @@
+class Puerta < ApplicationRecord
+end

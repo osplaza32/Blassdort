@@ -1,0 +1,2 @@
+class Empresa < ApplicationRecord
+end

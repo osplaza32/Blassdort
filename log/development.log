@@ -21489,3 +21489,197 @@ Migrating to MigrationName (20180206183132)
  AND fk.table_name = 'oficinas'
  [0m
   [1m[35m (0.2ms)[0m  SHOW CREATE TABLE `oficinas`
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (17.0ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT GET_LOCK(701542007240789400, 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateDatabaseStructure (20180207183256)
+  [1m[35m (12.3ms)[0m  [1m[34mSELECT RELEASE_LOCK(701542007240789400)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK(701542007240789400, 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateEmpresas (20180207185126)
+  [1m[35m (26.7ms)[0m  [1m[35mCREATE TABLE `empresas` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nombre` varchar(255), `puertas` varchar(255), `puerta` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180207185126')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-02-07 18:51:48', '2018-02-07 18:51:48')[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK(701542007240789400)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `empresas` (`nombre`, `created_at`, `updated_at`) VALUES ('BlastDoor', '2018-02-07 18:52:41', '2018-02-07 18:52:41')[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `empresas` (`nombre`, `created_at`, `updated_at`) VALUES ('Salo', '2018-02-07 18:53:06', '2018-02-07 18:53:06')[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS `CuentasAdmin` CASCADE[0m
+  [1m[35m (25.9ms)[0m  [1m[35mCREATE TABLE `CuentasAdmin` (`idCuentasAdmin` int NOT NULL, `username` varchar(45) NOT NULL, `Password` varchar(100) NOT NULL, `Planes_idPlanes` int NOT NULL, PRIMARY KEY (idCuentasAdmin, Planes_idPlanes),  INDEX `fk_CuentasAdmin_Planes_idx`  (`Planes_idPlanes`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS `DatosEmpresa` CASCADE[0m
+  [1m[35m (17.7ms)[0m  [1m[35mCREATE TABLE `DatosEmpresa` (`idDatosEmpresa` int NOT NULL, `NombreEmpresa` varchar(45) NOT NULL, `NumeroTrabajadores` varchar(45) NOT NULL, `DescripcionEmpresa` varchar(45), `CuentasAdmin_idCuentasAdmin` int NOT NULL, PRIMARY KEY (idDatosEmpresa, CuentasAdmin_idCuentasAdmin),  INDEX `fk_DatosEmpresa_CuentasAdmin1_idx`  (`CuentasAdmin_idCuentasAdmin`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS `DatosUsuarios` CASCADE[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE `DatosUsuarios` (`idtable1` int NOT NULL, `nombreUsuarios` varchar(45) NOT NULL, `FechaNacimiento` varchar(45) NOT NULL, `rut` varchar(45) NOT NULL, `User_idUser` int NOT NULL, PRIMARY KEY (idtable1, User_idUser),  INDEX `fk_DatosUsuarios_User1_idx`  (`User_idUser`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS `Equipamiento` CASCADE[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE `Equipamiento` (`idEquipamiento` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `Oficinas_idOficinas` int NOT NULL,  INDEX `fk_Equipamiento_Oficinas1_idx`  (`Oficinas_idOficinas`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS `Invitados` CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE `Invitados` (`idInvitados` int NOT NULL, `Nombre` varchar(45) NOT NULL, `Clave` varchar(45) NOT NULL, `usuario` varchar(45) NOT NULL, `User_idUser` int NOT NULL, PRIMARY KEY (idInvitados, User_idUser),  INDEX `fk_Invitados_User1_idx`  (`User_idUser`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS `Oficinas` CASCADE[0m
+  [1m[35m (17.4ms)[0m  [1m[35mCREATE TABLE `Oficinas` (`idOficinas` int NOT NULL, `Direccion` varchar(45) NOT NULL, `Encagado` varchar(45) NOT NULL, `Sedetrabajadores` varchar(45) NOT NULL, `CuentasAdmin_idCuentasAdmin` int NOT NULL, PRIMARY KEY (idOficinas, CuentasAdmin_idCuentasAdmin),  INDEX `fk_Oficinas_CuentasAdmin1_idx`  (`CuentasAdmin_idCuentasAdmin`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS `Permisos` CASCADE[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE `Permisos` (`idPermisos` int NOT NULL, `estado` varchar(45), `Puerta_idPuerta` int NOT NULL, `User_idUser` int NOT NULL, PRIMARY KEY (idPermisos, Puerta_idPuerta, User_idUser),  INDEX `fk_Permisos_Puerta1_idx`  (`Puerta_idPuerta`),  INDEX `fk_Permisos_User1_idx`  (`User_idUser`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS `Planes` CASCADE[0m
+  [1m[35m (18.5ms)[0m  [1m[35mCREATE TABLE `Planes` (`idPlanes` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `NombrePlan` varchar(45) NOT NULL, `PlanPrecio` varchar(45) NOT NULL, `PlanVecimiento` datetime NOT NULL, `PlanUsuarios` int NOT NULL, `PlanPuertas` int NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS `Puerta` CASCADE[0m
+  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE `Puerta` (`idPuerta` int NOT NULL, `DescripcionEmpresa` varchar(45) NOT NULL, `Oficinas_idOficinas` int NOT NULL, `hardware_idhardware` int NOT NULL, PRIMARY KEY (idPuerta, Oficinas_idOficinas, hardware_idhardware),  INDEX `fk_Puerta_Oficinas1_idx`  (`Oficinas_idOficinas`),  INDEX `fk_Puerta_hardware1_idx`  (`hardware_idhardware`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS `User` CASCADE[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE `User` (`idUser` int NOT NULL, `acceso` varchar(45) NOT NULL, `Clave` varchar(45) NOT NULL, `CuentasAdmin_idCuentasAdmin` int NOT NULL, PRIMARY KEY (idUser, CuentasAdmin_idCuentasAdmin),  INDEX `fk_User_CuentasAdmin1_idx`  (`CuentasAdmin_idCuentasAdmin`)) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS `empresas` CASCADE[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE `empresas` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nombre` varchar(255), `puertas` varchar(255), `puerta` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS `hardware` CASCADE[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE `hardware` (`idhardware` int NOT NULL AUTO_INCREMENT PRIMARY KEY, `nSerie` varchar(45) NOT NULL, `CanalMQTT` varchar(45) NOT NULL, `MnesjaeMQTT` varchar(45) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8[0m
+  [1m[35m (23.6ms)[0m  [1m[35mALTER TABLE `CuentasAdmin` ADD CONSTRAINT `fk_CuentasAdmin_Planes`
+FOREIGN KEY (`Planes_idPlanes`)
+  REFERENCES `Planes` (`idPlanes`)
+[0m
+  [1m[35m (18.7ms)[0m  [1m[35mALTER TABLE `DatosEmpresa` ADD CONSTRAINT `fk_DatosEmpresa_CuentasAdmin1`
+FOREIGN KEY (`CuentasAdmin_idCuentasAdmin`)
+  REFERENCES `CuentasAdmin` (`idCuentasAdmin`)
+[0m
+  [1m[35m (19.0ms)[0m  [1m[35mALTER TABLE `DatosUsuarios` ADD CONSTRAINT `fk_DatosUsuarios_User1`
+FOREIGN KEY (`User_idUser`)
+  REFERENCES `User` (`idUser`)
+[0m
+  [1m[35m (19.3ms)[0m  [1m[35mALTER TABLE `Equipamiento` ADD CONSTRAINT `fk_Equipamiento_Oficinas1`
+FOREIGN KEY (`Oficinas_idOficinas`)
+  REFERENCES `Oficinas` (`idOficinas`)
+[0m
+  [1m[35m (19.2ms)[0m  [1m[35mALTER TABLE `Invitados` ADD CONSTRAINT `fk_Invitados_User1`
+FOREIGN KEY (`User_idUser`)
+  REFERENCES `User` (`idUser`)
+[0m
+  [1m[35m (26.9ms)[0m  [1m[35mALTER TABLE `Oficinas` ADD CONSTRAINT `fk_Oficinas_CuentasAdmin1`
+FOREIGN KEY (`CuentasAdmin_idCuentasAdmin`)
+  REFERENCES `CuentasAdmin` (`idCuentasAdmin`)
+[0m
+  [1m[35m (26.4ms)[0m  [1m[35mALTER TABLE `Permisos` ADD CONSTRAINT `fk_Permisos_Puerta1`
+FOREIGN KEY (`Puerta_idPuerta`)
+  REFERENCES `Puerta` (`idPuerta`)
+[0m
+  [1m[35m (29.5ms)[0m  [1m[35mALTER TABLE `Permisos` ADD CONSTRAINT `fk_Permisos_User1`
+FOREIGN KEY (`User_idUser`)
+  REFERENCES `User` (`idUser`)
+[0m
+  [1m[35m (27.3ms)[0m  [1m[35mALTER TABLE `Puerta` ADD CONSTRAINT `fk_Puerta_Oficinas1`
+FOREIGN KEY (`Oficinas_idOficinas`)
+  REFERENCES `Oficinas` (`idOficinas`)
+[0m
+  [1m[35m (23.5ms)[0m  [1m[35mALTER TABLE `Puerta` ADD CONSTRAINT `fk_Puerta_hardware1`
+FOREIGN KEY (`hardware_idhardware`)
+  REFERENCES `hardware` (`idhardware`)
+[0m
+  [1m[35m (19.5ms)[0m  [1m[35mALTER TABLE `User` ADD CONSTRAINT `fk_User_CuentasAdmin1`
+FOREIGN KEY (`CuentasAdmin_idCuentasAdmin`)
+  REFERENCES `CuentasAdmin` (`idCuentasAdmin`)
+[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (version) VALUES (20180207185126)[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-02-07 18:54:12', '2018-02-07 18:54:12')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (31.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `blastdoorDefinitivo`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (12.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK(5203241516300385495, 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateEmpresas (20180207185126)
+  [1m[35m (27.7ms)[0m  [1m[35mCREATE TABLE `empresas` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nombre` varchar(255), `puertas` varchar(255), `puerta` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180207185126')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-02-07 18:55:52', '2018-02-07 18:55:52')[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK(5203241516300385495)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (19.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS `blastdoorDefinitivo`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (25.7ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (24.7ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK(5203241516300385495, 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateEmpresas (20180207185126)
+  [1m[35m (25.2ms)[0m  [1m[35mCREATE TABLE `empresas` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nombre` varchar(255), `puertas` varchar(255), `logo` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180207185126')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (2.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2018-02-07 19:01:16', '2018-02-07 19:01:16')[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK(5203241516300385495)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK(5203241516300385495, 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateMetricas (20180207190740)
+  [1m[35m (25.2ms)[0m  [1m[35mCREATE TABLE `metricas` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `usuario` int, `puerta` int, `momento` date, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180207190740')[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHorarios (20180207190905)
+  [1m[35m (30.7ms)[0m  [1m[35mCREATE TABLE `horarios` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `inicio` varchar(255), `fin` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180207190905')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHardwares (20180207191015)
+  [1m[35m (30.1ms)[0m  [1m[35mCREATE TABLE `hardwares` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nserial` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180207191015')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsuarios (20180207192041)
+  [1m[35m (20.4ms)[0m  [1m[35mCREATE TABLE `usuarios` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nombre` varchar(255), `email` varchar(255), `apellido` varchar(255), `cargo` varchar(255), `foto` varchar(255), `telefono` varchar(255), `conectado` varchar(255), `password` varchar(255), `pincode` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180207192041')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePuerta (20180207192613)
+  [1m[35m (29.0ms)[0m  [1m[35mCREATE TABLE `puerta` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `descr` varchar(255), `horafiinicio` varchar(255), `horafifin` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180207192613')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK(5203241516300385495)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m

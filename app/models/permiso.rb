@@ -1,0 +1,2 @@
+class Permiso < ApplicationRecord
+end

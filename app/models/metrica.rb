@@ -1,0 +1,2 @@
+class Metrica < ApplicationRecord
+end
