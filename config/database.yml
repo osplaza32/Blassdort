@@ -17,3 +17,12 @@ development:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: test-mysql2_production
+  pool: 5
+  username: root
+  password: 987kjhLKJ
+  socket: /tmp/mysql.sock
