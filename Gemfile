@@ -26,6 +26,8 @@ gem 'mysql2'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
+gem 'puma'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

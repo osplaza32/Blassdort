@@ -1,1 +1,17 @@
 
+I, [2018-02-08T13:35:28.355958 #11067]  INFO -- : Started GET "/home/index" for 127.0.0.1 at 2018-02-08 13:35:28 -0300
+I, [2018-02-08T13:35:28.369636 #11067]  INFO -- : Processing by HomeController#index as HTML
+I, [2018-02-08T13:35:28.401385 #11067]  INFO -- :   Rendering home/index.html.erb within layouts/application
+I, [2018-02-08T13:35:28.402502 #11067]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.9ms)
+I, [2018-02-08T13:35:50.810131 #11067]  INFO -- : Completed 500 Internal Server Error in 22440ms
+F, [2018-02-08T13:35:50.811884 #11067] FATAL -- :   
+F, [2018-02-08T13:35:50.811952 #11067] FATAL -- : ActionView::Template::Error (In strict mode code, functions can only be declared at top level or immediately within another function.):
+F, [2018-02-08T13:35:50.812225 #11067] FATAL -- :      6:     <title>BlastDoor --admin</title>
+     7: 
+     8:     <!-- Main css styles -->
+     9:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    10: 
+    11:     <!-- Main javascript files -->
+    12:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+F, [2018-02-08T13:35:50.812265 #11067] FATAL -- :   
+F, [2018-02-08T13:35:50.812302 #11067] FATAL -- : app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb___101915992137324796_70227991507620'

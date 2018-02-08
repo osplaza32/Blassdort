@@ -85,6 +85,7 @@ GEM
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    puma (3.11.2)
     rack (2.0.4)
     rack-contrib (2.0.1)
       rack (~> 2.0)
@@ -167,6 +168,7 @@ DEPENDENCIES
   jbuilder
   meta_request
   mysql2
+  puma
   rails
   rename
   sass-rails
