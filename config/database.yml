@@ -11,7 +11,8 @@ development:
   timeout: 5000
   host: localhost
   username: root
-  password: root
+  password: 987kjhLKJ
+
 
 
 
@@ -25,4 +26,4 @@ production:
   pool: 5
   username: root
   password: 987kjhLKJ
-  socket: /tmp/mysql.sock
+  host: localhost
