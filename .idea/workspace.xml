@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="be82cb7c-0605-46ea-83cb-6d75f47a080a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/views/sessions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
+      <change beforePath="$PROJECT_DIR$/config/environments/production.rb" afterPath="$PROJECT_DIR$/config/environments/production.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -43,38 +43,38 @@
       <file leaf-file-name="application.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="103">
               <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/sessions/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
-              <caret line="2" column="68" lean-forward="true" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
+              <caret line="2" column="68" lean-forward="false" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20180207190740_create_metricas.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20180207190740_create_metricas.rb">
+      <file leaf-file-name="production.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="94">
+              <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20180207190905_create_horarios.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20180207190905_create_horarios.rb">
+      <file leaf-file-name="development.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="217">
+              <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -126,6 +126,7 @@
     <findStrings>
       <find>inspinia</find>
       <find>drop</find>
+      <find>config.assets.compile</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,6 +176,7 @@
         <option value="$PROJECT_DIR$/.gitignored" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/sessions/new.html.erb" />
+        <option value="$PROJECT_DIR$/config/environments/production.rb" />
       </list>
     </option>
   </component>
@@ -249,6 +251,12 @@
               <item name="BlastDoor" type="b2602c69:ProjectViewProjectNode" />
               <item name="BlastDoor" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlastDoor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlastDoor" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="environments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BlastDoor" type="b2602c69:ProjectViewProjectNode" />
@@ -426,12 +434,12 @@
       <workItem from="1517684925940" duration="11043000" />
       <workItem from="1517922738325" duration="14569000" />
       <workItem from="1518107236982" duration="1082000" />
-      <workItem from="1518113570309" duration="1127000" />
+      <workItem from="1518113570309" duration="1342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47970000" />
+    <option name="totallyTimeSpent" value="48185000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="773" extended-state="0" />
@@ -553,13 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/assets/javascripts/dist/dropzone.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -599,13 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -734,7 +728,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="103">
           <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding />
         </state>
@@ -743,7 +737,23 @@
     <entry file="file://$PROJECT_DIR$/app/views/sessions/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="68" lean-forward="true" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
+          <caret line="2" column="68" lean-forward="false" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="27" column="3" lean-forward="false" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
           <folding />
         </state>
       </provider>
