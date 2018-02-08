@@ -1,0 +1,18 @@
+I"W(function() {
+  var loadFile;
+
+  console.log("hola");
+
+  loadFile = function(event) {
+    var reader;
+    reader = new FileReader;
+    reader.onload = function() {
+      var output;
+      output = document.getElementById('output');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+
+}).call(this);
+:ET
