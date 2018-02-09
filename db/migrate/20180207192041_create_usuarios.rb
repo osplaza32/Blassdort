@@ -7,11 +7,15 @@ class CreateUsuarios < ActiveRecord::Migration[5.1]
       t.string :cargo
       t.string :foto
       t.string :telefono
+      t.string :rol
       t.string :conectado
       t.string :password
       t.string :pincode
+      t.belongs_to :empresas
 
       t.timestamps
+
     end
+
   end
 end

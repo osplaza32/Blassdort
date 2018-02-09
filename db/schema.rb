@@ -62,11 +62,14 @@ ActiveRecord::Schema.define(version: 20180207193036) do
     t.string "cargo"
     t.string "foto"
     t.string "telefono"
+    t.string "rol"
     t.string "conectado"
     t.string "password"
     t.string "pincode"
+    t.bigint "empresas_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["empresas_id"], name: "index_usuarios_on_empresas_id"
   end
 
 end
