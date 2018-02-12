@@ -1,13 +1,15 @@
 # controller  for home
 class HomeController < ApplicationController
   def index
-    @logocompany = file_logo
-    @maintitle = 'Welcome in Inspinia Rails Seed Project'
-    @maindesc = 'It is an application skeleton for a typical Ruby on Rails web app. You can use it to quickly bootstrap your webapp projects and dev/prod environment."'
+    if session.has_key?(:idempresa)
+      @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))
+      @maintitle = 'Hola Usuario poner nombre'
+      @maindesc = 'nose que es esto pero enjoy'
+    else
+      redirect_to :root
+
+    end
   end
 
 
-  def file_logo
-    'blastdoorsinblanco.png'
-  end
 end

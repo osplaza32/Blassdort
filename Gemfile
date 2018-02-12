@@ -13,14 +13,13 @@ gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
 #gem 'uglifier'
 gem 'jquery-rails'
-
-
+gem 'bcrypt-ruby', '3.1.2'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'gibberish', '~> 2.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'uuidtools'

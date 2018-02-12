@@ -1,8 +1,9 @@
 BlastDoor::Application.routes.draw do
+  resources :sessions
   get 'usuario/perfil'
   get 'usuario/editar'
   get 'usuario/create'
-
+  post 'sessions/auth'
   get 'puertas/create'
   get 'puertas/get'
   get 'puertas/perfil'

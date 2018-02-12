@@ -38,6 +38,21 @@
     </tr>
     </thead>
     <tbody>
+    <% @datosusuario  .each do |item| %>
+      <tr data-html="true" data-container="body" data-toggle="popover"
+          data-placement="bottom"
+          data-content="<div class='main-info-user'><div class='info-user'><img src='https://scontent.fscl8-1.fna.fbcdn.net/v/t1.0-1/p32x32/23561650_10155949280343024_8631746562890007137_n.jpg?oh=897266393c1b26e507358be8f706f11d&oe=5B2412B3' alt='Smiley face' height='84' width='84'><a href='#'>cambiar foto</a></div>
+          <div class='info-suprema'><label>Nombre: <%= item.nombre %></label><br><label>Apellido: <%= item.apellido %></label><br><label>Email: <%= item.email %></label><br><label>cargo: <%= item.cargo %></label><br></div></div>
+
+      <div class='button-info-panel-accion'><button class='btn btn-success info-panel'>Guardar</button><button class='btn btn-primary'>Editar</button></div></div>">
+        <td> <%= item.nombre%>  </td>
+        <td><%= item.apellido %></td>
+        <td> <%= item.email%>  </td>
+        <td> <%= item.telefono%>  </td>
+        <td> <%= item.cargo%>  </td>
+
+      </tr>
+    <%end%>
 
     </tbody>
     <tfoot>
@@ -50,6 +65,8 @@
     </tr>
     </tfoot>
   </table>
+
+
 
 </div>
 </div>

@@ -1,3 +1,7 @@
 class Usuario < ApplicationRecord
-  belongs_to :empresas
+  include ActiveModel::SecurePassword
+  has_secure_password
+  belongs_to :empresa
+  has_many :permisos
+
 end

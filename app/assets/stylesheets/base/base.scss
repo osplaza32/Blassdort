@@ -1,3 +1,30 @@
+.main-info-user {
+  display: -webkit-box;
+}
+.popover{
+  max-width:1600px;
+}
+.info-suprema {
+  padding-left: 1em;
+}
+.open-main-info-puerta {
+  padding-top: 1em;
+}
+.info-user {
+  display: inline-grid;
+  text-align: center;
+
+}
+.button-info-panel-accion {
+  text-align: center;
+}
+.open-main-info-puerta {
+  text-align: right;
+}
+
+button.btn.btn-success.info-panel {
+  margin-right: 1em;
+}
 body {
   font-family: $font-stack;
   background-color: #2f4050;

@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20180207193036) do
 
   create_table "empresas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombre"
-    t.string "puertas"
+    t.integer "npuertas"
     t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,16 +43,25 @@ ActiveRecord::Schema.define(version: 20180207193036) do
 
   create_table "permisos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "horarios"
+    t.string "estado"
+    t.bigint "usuario_id"
+    t.bigint "puerta_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["puerta_id"], name: "index_permisos_on_puerta_id"
+    t.index ["usuario_id"], name: "index_permisos_on_usuario_id"
   end
 
   create_table "puerta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "descr"
     t.string "horafiinicio"
     t.string "horafifin"
+    t.bigint "empresa_id"
+    t.bigint "hardware_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["empresa_id"], name: "index_puerta_on_empresa_id"
+    t.index ["hardware_id"], name: "index_puerta_on_hardware_id"
   end
 
   create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,14 +71,14 @@ ActiveRecord::Schema.define(version: 20180207193036) do
     t.string "cargo"
     t.string "foto"
     t.string "telefono"
-    t.string "rol"
+    t.string "role"
     t.string "conectado"
-    t.string "password"
+    t.string "password_digest"
     t.string "pincode"
-    t.bigint "empresas_id"
+    t.bigint "empresa_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["empresas_id"], name: "index_usuarios_on_empresas_id"
+    t.index ["empresa_id"], name: "index_usuarios_on_empresa_id"
   end
 
 end
