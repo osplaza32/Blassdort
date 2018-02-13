@@ -4,6 +4,7 @@ capybara-*.html
 .rspec
 /log
 /tmp
+/public
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /coverage/
@@ -48,3 +49,5 @@ bower.json
 
 # Ignore node_modules
 node_modules/
+public/
+tmp/

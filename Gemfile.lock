@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/njh/ruby-mqtt.git
+  revision: 38958735278860d5793322c808e6c84694e2aa70
+  specs:
+    mqtt (0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -174,6 +180,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   meta_request
+  mqtt!
   mysql2
   puma
   rails

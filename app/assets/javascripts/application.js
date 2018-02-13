@@ -20,3 +20,14 @@
 //= require_tree .
 
 
+var loadFile = function(event) {
+    var reader;
+        reader = new FileReader;
+        reader.onload = function() {
+                var output;
+                output = document.getElementById('output');
+                output.src = reader.result;
+
+                };
+        reader.readAsDataURL(event.target.files[0]);
+    };

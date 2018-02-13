@@ -1,2 +1,22 @@
-<h1>Puertas#create</h1>
-<p>Find me in app/views/puertas/create.html.erb</p>
+
+<%=form_for :puertas, url: url_for( :controller => :puertas, :action => :create2 ) do |f| %>
+
+  <p>esta instancia es para que en la compañia pueda registrar sus puerta de buena manera cuando al usuario se le pida el codigo serial por favor dirigase a la caja del producto e introduzca el nserial de la maquina instalada para esta puerta</p>
+
+
+  <div class="form-group">
+    <label for="">Nombre de la puerta</label>
+
+    <%= text_field(:puerta, :desc,class: 'form-control  ') %>
+
+  </div>
+  <div class="form-group">
+    <label for="">codigo serial</label>
+
+    <%= text_field(:puerta, :serial,class: 'form-control  ') %>
+
+  </div>
+
+  <button type="submit" class="btn btn-default block full-width m-b ">crear</button>
+
+<%end%>

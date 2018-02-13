@@ -1,3 +1,22 @@
 // Place all the styles related to the Puertas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#resp-table {
+  width: 100%;
+  display: table;
+}
+.table-header-cell{
+  display: table-cell;
+  padding: 10px;
+  text-align: justify;
+  border-bottom: 1px solid black;
+}
+#resp-table-body{
+  display: table-row-group;
+}
+.resp-table-row{
+  display: table-row;
+}
+.table-body-cell{
+  display: table-cell;
+}

@@ -9,6 +9,9 @@ gem "font-awesome-rails"
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
+#MQTT
+gem 'mqtt', :git => 'https://github.com/njh/ruby-mqtt.git'
+
 
 # Use Uglifier as compressor for JavaScript assets
 #gem 'uglifier'

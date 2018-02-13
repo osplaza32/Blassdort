@@ -1,0 +1,108 @@
+<div class="ibox-content">
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>NOMBRE EMPLEADO</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <%@datosusuarios.each do |item| %>
+      <tr data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;">
+
+
+          <td> <%= item.nombre%>  </td>
+      </tr>
+      <div class="modal inmodal" id="myModal4<%=item.nombre%>" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeIn">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <i class="fa fa-info fa-5x"></i>
+              <h4 class="modal-title"><%= item.nombre %></h4>
+              <small><%= item.nombre %></small>
+              <div class="modal-body dias">
+                <% @dias.each do |dia|  %>
+                  <div class=“resp-table-row”>
+                    <div class=“table-body-cell”>
+                      <%= check_box_tag 'd_ids[]', dia.id -%>
+                      <%= " #{dia.nombre}"%>
+
+                    </div>
+                  </div>
+
+                <% end %>
+            </div>
+
+            <div class="modal-body superEspecial">
+
+
+
+              <div id=“resp-table”>
+
+                  <div class=“resp-table-row”>
+
+                <% @horarios1.each do |role| %>
+                      <div class=“table-body-cell”>
+
+                    <%= check_box_tag 'h_ids[]', role.id -%>
+                    <%= " #{role.inicio} a #{role.fin}"%>
+                      </div>
+
+                <% end %>
+                  </div>
+                  <div class=“resp-table-row”>
+
+                    <% @horarios2.each do |role| %>
+                      <div class=“table-body-cell”>
+
+                        <%= check_box_tag 'h_ids[]', role.id -%>
+                        <%= "#{role.inicio}  a #{role.fin}"%>
+                      </div>
+
+                    <% end %>
+                  </div>
+                <div class=“resp-table-row”>
+
+                  <% @horarios3.each do |role| %>
+                    <div class=“table-body-cell”>
+
+                      <%= check_box_tag 'h_ids[]', role.id -%>
+                      <%= " #{role.inicio} a #{role.fin}"%>
+                    </div>
+
+                  <% end %>
+                </div>
+                <div class=“resp-table-row”>
+
+                  <% @horarios4.each do |role| %>
+                    <div class=“table-body-cell”>
+
+                      <%= check_box_tag 'h_ids[]', role.id -%>
+                      <%= " #{role.inicio} a #{role.fin}"%>
+                    </div>
+
+                  <% end %>
+                </div>
+
+              </div>
+
+
+
+            </div>
+
+            <div class="modal-footer">
+              <button>aceptar</button>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <%end%>
+    </tbody>
+  </table>
+
+</div>

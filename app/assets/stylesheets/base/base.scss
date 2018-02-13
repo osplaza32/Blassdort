@@ -1,29 +1,23 @@
-.main-info-user {
+div#“resp-table” {
   display: -webkit-box;
 }
-.popover{
-  max-width:1600px;
+.“resp-table-row” {
+  padding-right: 1em;
 }
-.info-suprema {
-  padding-left: 1em;
+.modal-body {
+  display: inline-flex;
 }
-.open-main-info-puerta {
-  padding-top: 1em;
-}
-.info-user {
-  display: inline-grid;
-  text-align: center;
-
-}
-.button-info-panel-accion {
+.modal-content.animated.fadeIn {
   text-align: center;
 }
-.open-main-info-puerta {
-  text-align: right;
+.dias {
+  display: -webkit-box;
 }
-
-button.btn.btn-success.info-panel {
-  margin-right: 1em;
+.modal-body.superEspecial {
+  display: inline-block;
+}
+div#“resp-table” {
+  display: inline-flex;
 }
 body {
   font-family: $font-stack;

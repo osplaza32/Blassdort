@@ -1,13 +1,4 @@
-<div class="row wrapper border-bottom white-bg page-heading">
-  <div class="col-sm-4">
-    <ol class="breadcrumb">
-      <li>
-        <a href="<%= url_for :controller => 'home', :action => 'index' %>">BlastDoor</a>/<a href="<%= url_for :controller => 'usuarios', :action => 'get' %>">Usuarios</a>
-      </li>
 
-    </ol>
-  </div>
-</div>
 <div class="ibox-content">
   <div class="ibox-content"><div class="col-sm-4 m-b-xs">
     <a onclick="fnClickAddRow();" href="<%= url_for :controller => 'usuario',:action => 'create' %>" class="btn btn-primary ">Agregar Nuevo Usuarios</a></div>
@@ -38,32 +29,48 @@
     </tr>
     </thead>
     <tbody>
-    <% @datosusuario  .each do |item| %>
-      <tr data-html="true" data-container="body" data-toggle="popover"
-          data-placement="bottom"
-          data-content="<div class='main-info-user'><div class='info-user'><img src='https://scontent.fscl8-1.fna.fbcdn.net/v/t1.0-1/p32x32/23561650_10155949280343024_8631746562890007137_n.jpg?oh=897266393c1b26e507358be8f706f11d&oe=5B2412B3' alt='Smiley face' height='84' width='84'><a href='#'>cambiar foto</a></div>
-          <div class='info-suprema'><label>Nombre: <%= item.nombre %></label><br><label>Apellido: <%= item.apellido %></label><br><label>Email: <%= item.email %></label><br><label>cargo: <%= item.cargo %></label><br></div></div>
+    <% @datosusuario.each do |item| %>
+      <tr data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;">
 
-      <div class='button-info-panel-accion'><button class='btn btn-success info-panel'>Guardar</button><button class='btn btn-primary'>Editar</button></div></div>">
         <td> <%= item.nombre%>  </td>
         <td><%= item.apellido %></td>
-        <td> <%= item.email%>  </td>
-        <td> <%= item.telefono%>  </td>
-        <td> <%= item.cargo%>  </td>
-
+        <td><%= item.email %></td>
+        <td><%= item.telefono%></td>
+        <td><%= item.cargo %></td>
       </tr>
+      <div class="modal inmodal" id="myModal4<%=item.nombre%>" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content animated fadeIn">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              <i class="fa fa-info fa-5x"></i>
+              <h4 class="modal-title"><%=  item.nombre %></h4>
+              <small><%=  item.nombre %></small>
+            </div>
+            <div class="modal-body">
+
+              <p>
+                <img src="#{item.foto}" alt="<%= item.nombre %>"/>
+              </p>
+              <%=form_for :puertas, url: url_for( :controller => :usuario, :action => :update ) do |f| %>
+                <div class="form-group">
+                  <%= text_field 'Descriptcion', "nombre" ,:value => "#{item.nombre}",:readonly => true %>
+                </div>
+              <%end%>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Editar</button>
+              <button type="button" class="btn btn-primary">Enviar contraseña</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
     <%end%>
 
     </tbody>
-    <tfoot>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Correo</th>
-      <th>Telefono</th>
-      <th>Cargo</th>
-    </tr>
-    </tfoot>
+
   </table>
 
 

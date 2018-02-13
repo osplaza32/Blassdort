@@ -9,29 +9,30 @@
                 </div>
 
                 <div class="logo-element">
-                  <%= image_tag("logos/blastdoorsinblanco.png",size: "100x100", :alt => "BlastDoor") %>
+                  <%= image_tag("#{@logocompany}",size: "50x50", :alt => "BlastDoor") %>
 
                 </div>
             </li>
-            <li class="<%= 'active' if current_page?('/home/index') %>">
-                <%= link_to "/home/index",html_options = {:class => "btn btn-primary custom-btm"}  do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
-                <% end %>
-            </li>
-          <li class="<%= 'active' if current_page?('/metricas/get') %>">
-          <%= link_to "/metricas/get",html_options = {:class => "btn btn-primary"}  do %>
-            <i class="fa fa-laptop"></i> <span class="nav-label">Metricas</span>
-          <% end %>
-        </li>
-          <li class="<%= 'active' if current_page?('/puertas/get') %>">
-            <%= link_to "/puertas/get",html_options = {:class => "btn btn-primary"}  do %>
-              <i class="fa fa-laptop"></i> <span class="nav-label">Puertas</span>
-            <% end %>
+          <li class="<%= 'active' if current_page?('/home/index') %>">
+            <%= link_to  '/home/index'  do%>
+              <i style="color: white;" class="fa fa-th-large"></i> <span class="nav-label">Inicio</span>
+            <%end%>
+          </li>
 
+          <li class="<%= 'active' if current_page?('/metricas/get') %>">
+            <%= link_to  '/metricas/get'  do%>
+              <i style="color: white;" class="fa fa-area-chart"></i> <span class="nav-label">Metricas</span>
+            <%end%>
+          </li>
+          <li class="<%= 'active' if current_page?('/puertas/get') %>">
+            <%= link_to '/puertas/get' do %>
+              <i style="color: white;" class="fa fa-columns"></i> <span class="nav-label">Puertas</span>
+
+          <%end%>
           </li>
           <li class="<%= 'active' if current_page?('/usuarios/get') %>">
-            <%= link_to "/usuarios/get",html_options = {:class => "btn btn-primary"}  do %>
-              <i class="fa fa-laptop"></i> <span class="nav-label">Usuarios</span>
+            <%= link_to "/usuarios/get"  do %>
+              <i style="color: white;" class="fa fa-users"></i> <span class="nav-label">Usuarios</span>
             <% end %>
 
           </li>

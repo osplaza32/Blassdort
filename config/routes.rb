@@ -1,9 +1,14 @@
 BlastDoor::Application.routes.draw do
-  resources :sessions
+
   get 'usuario/perfil'
   get 'usuario/editar'
   get 'usuario/create'
   post 'sessions/auth'
+  post 'puertas/update'
+  post 'usuario/update'
+  post 'puertas/create2'
+  post 'puertas/add'
+  get 'permisos/create'
   get 'puertas/create'
   get 'puertas/get'
   get 'puertas/perfil'
@@ -14,6 +19,9 @@ BlastDoor::Application.routes.draw do
   get 'home/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+  post "permisos/comprobar" => "permisos#comprobar"
+
 
   # You can have the root of your site routed with "root"
 root to: 'sessions#new'
