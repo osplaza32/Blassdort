@@ -5,7 +5,7 @@ class PermisosController < ApplicationController
     serial = params[:data][:puera]
     puerta = Hardware.find_by_nserial(serial).puerta
     if usu.role == 'admin'
-      MQTT::Client.connect('localhost',:client_id => usu.email) do |client|
+      MQTT::Client.connect('localhost') do |client|
 
         client.publish(serial, "Abrir")
 
