@@ -1,2 +1,0 @@
-class Dium < ApplicationRecord
-end

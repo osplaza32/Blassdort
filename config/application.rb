@@ -8,6 +8,8 @@ Bundler.require(:default, Rails.env)
 
 module BlastDoor
   class Application < Rails::Application
+    config.time_zone = 'America/Santiago'
+
 
     console { ActiveRecord::Base.connection }
     # Settings in config/environments/* take precedence over those specified here.

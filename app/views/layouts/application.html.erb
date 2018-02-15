@@ -13,8 +13,9 @@
 
 </head>
 <body>
-<% if   !current_page?(root_url)%>
+<% if   !current_page?(root_url) %>
     <!-- Wrapper-->
+  <%if  !current_page?(controller: 'usuario', action: 'index')%>
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -38,6 +39,12 @@
 
     </div>
     <!-- End wrapper-->
+  <%else%>
+    <div id="wrapper" class="white-bg ">
+      <%= yield %>
+
+    </div>
+  <%end%>
 <%else%>
   <div id="wrapper" class="white-bg ">
       <%= yield %>

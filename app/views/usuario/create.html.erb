@@ -1,42 +1,34 @@
 
-
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <div class="wrapper wrapper-content animated fadeIn">
   <div class="row">
 
         <div class="ibox-content">
-          <form id="" class="" action="#" method="get" enctype="multipart/form-data">
+          <%= form_for :usuarios, :url => url_for(:controller => 'usuario', :action => 'create2') do |f| %>
             <div class="form-group">
-              <label class="col-lg-2 control-label">Nombre</label>
 
-              <div class="col-lg-10">
-                <input type="text" placeholder="Nombre" class="form-control">
-              </div>
-            </div>
+              Nombres: <%= f.text_field :nombre , class: 'form-control' %></div>
             <div class="form-group">
-              <label class="col-lg-2 control-label">Apellido</label>
 
-              <div class="col-lg-10"><input type="text" placeholder="apellido" class="form-control"></div>
-            </div>
+              Apellidos: <%= f.text_field :apellido, class: 'form-control' %></div>
             <div class="form-group">
-              <label class="col-lg-2 control-label">Correo electronico</label>
 
-              <div class="col-lg-10"><input type="email" placeholder="email" class="form-control"></div>
-
-            </div>
+              Email: <%= f.email_field :email, class: 'form-control' %></div>
             <div class="form-group">
-              <label class="col-lg-2 control-label">Nª Telefonico</label>
 
-              <div class="col-lg-10"><input type="tel" placeholder="Telefono" class="form-control"></div>
-            </div>
+              Telefono: <%= f.telephone_field :telefono, class: 'form-control' %></div>
             <div class="form-group">
-              <label class="col-lg-2 control-label">Cargo</label>
 
-              <div class="col-lg-10"><input type="text" placeholder="Cargo" class="form-control"></div>
-            </div>
-            <input type="file" accept="image/*" onchange="loadFile(event)">
-            <img id="output" height="100px" width="100px"/>
-            <input type="submit">
-          </form>
+              Cargo: <%= f.text_field :cargo, class: 'form-control' %></div>
+
+
+            <%#=Password: <%= f.password_field :password %>
+            <%#=Password Confirmation: <%= f.password_field :password_confirmation %>
+            <%= f.submit "Submit" , class: 'btn btn-primary'%>
+
+          <% end %>
 
         </div>
       </div>

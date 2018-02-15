@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
   CIPPER = Gibberish::AES.new('Blast Door la lleva')
+
+
+
   def file_logo(entrada)
     "#{Empresa.find(entrada).logo}"
   end

@@ -35,6 +35,7 @@
 
         <td> <%= item.descr%>  </td>
         <td><%= Hardware.find(item.hardware_id).nserial %></td>
+        <td><%=Permiso.where(puerta_id: "#{item.id}").distinct.count(:usuario_id)%></td>
       </tr>
       <div class="modal inmodal" id="myModal4<%=Hardware.find(item.hardware_id).nserial%>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -60,7 +61,7 @@
             <div class="modal-footer">
               <%= button_to( "Agregar Usuario", {:action => "add", :controller => "puertas",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn btn-primary"})%>
               <button type="button" class="btn btn-primary">Editar</button>
-              <button type="button" class="btn btn-primary">Abrir Puertas</button>
+              <%= button_to( "Abrir Puerta", {:action => "comprobar", :controller => "permisos",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn btn-primary"})%>
 
 
             </div>

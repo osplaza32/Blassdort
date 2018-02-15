@@ -3,6 +3,7 @@ class CreateDia < ActiveRecord::Migration[5.1]
     create_table :dia do |t|
       t.string :nombre
 
+
       t.timestamps
     end
   end

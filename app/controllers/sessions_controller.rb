@@ -5,25 +5,33 @@ class SessionsController < ApplicationController
     'blastdoorsinblanco.png'
   end
   def auth
-    @usu = Usuario.find_by_email params[:usuariomail][:email]
+   # begin
+      @usu = Usuario.find_by_email params[:usuariomail][:email]
 
-    if @usu.authenticate(params[:usuariopass])
-      session[:idusuario] = CIPPER.encrypt(@usu.id.to_s)
-      session[:idempresa] = CIPPER.encrypt(@usu.empresa_id.to_s)
-      case @usu.role
-        when "admin"
-          redirect_to controller: 'home', action: 'index'
+      if @usu.authenticate(params[:usuariopass])
+        session[:idusuario] = CIPPER.encrypt(@usu.id.to_s)
+        session[:idempresa] = CIPPER.encrypt(@usu.empresa_id.to_s)
+        case @usu.role
+          when "admin"
+            redirect_to controller: 'home', action: 'index'
 
-        when "usuario"
-          redirect_to "http://localhost/app-blastDoor/"
+          when "usuario"
+            puts "Logre entrar"
+
+            redirect_to controller: 'usuario',action:'index'
 
 
-        else
-          redirect_to :root
+
+        end
+      else
+        redirect_to :root
+
       end
-    else
-      redirect_to :root
+   # rescue
+      #flash[:notice] = "Esta cuenta no se a encontrado"
 
-    end
+      #redirect_to :root
+    #end
   end
+
 end

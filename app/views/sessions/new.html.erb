@@ -4,6 +4,9 @@
 
 
     </div>
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
   <%=form_for :sessions, url: url_for( :controller => :sessions, :action => :auth ) do |f| %>
 
 <div class="form-group">

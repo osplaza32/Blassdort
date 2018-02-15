@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180213212407) do
+ActiveRecord::Schema.define(version: 20180215024230) do
 
   create_table "dia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombre"
@@ -49,11 +49,14 @@ ActiveRecord::Schema.define(version: 20180213212407) do
 
   create_table "permisos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "horarios"
-    t.string "estado"
     t.bigint "usuario_id"
     t.bigint "puerta_id"
+    t.bigint "dia_id"
+    t.bigint "horario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["dia_id"], name: "index_permisos_on_dia_id"
+    t.index ["horario_id"], name: "index_permisos_on_horario_id"
     t.index ["puerta_id"], name: "index_permisos_on_puerta_id"
     t.index ["usuario_id"], name: "index_permisos_on_usuario_id"
   end
