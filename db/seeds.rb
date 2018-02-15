@@ -1,5 +1,8 @@
 Empresa.create(nombre:'cornershop',npuertas:4,logo:'https://www.zoomtecnologico.com/wp-content/uploads/2017/08/cornershop.png')
+Empresa.create(nombre:'0ohm',npuertas:2,logo:'http://www.startupchile.org/wp-content/uploads/2017/01/oomh_2.jpg')
+Usuario.create(nombre:'Gaston',email:'gaston.r.w@0ohm.cl',cargo:'Administrador',role:'admin',password:'blastdoor2018',password_confirmation:'blastdoor2018',empresa_id:Empresa.find_by_nombre('0ohm').id)
 Usuario.create(nombre:'adminCornerShop',email:'admin@cornershop.cl',cargo:'Administrador',role:'admin',password:'test',password_confirmation:'test',empresa_id:Empresa.find_by_nombre('cornershop').id)
+Hardware.create(nserial: '123456ABCDEF')
 Horario.create(inicio: '00:00', fin: '00:29')
 Horario.create(inicio: '00:30', fin: '00:59')
 Horario.create(inicio: '01:00', fin: '01:29')
