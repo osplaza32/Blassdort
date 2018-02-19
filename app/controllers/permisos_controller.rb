@@ -5,8 +5,7 @@ class PermisosController < ApplicationController
     idusuario =   CIPPER.decrypt(session[:idusuario])
     usu = Usuario.find(idusuario)
     serial = params[:data][:puera]
-    puerta = Hardware.find_by_nserial(serial).puerta
-    ApplicationController.new.mqttaproved(usu,puerta)
+    ApplicationController.new.mqttaproved(usu,Hardware.find_by_nserial(serial))
     redirect_to :controller => 'puertas', :action => 'get'
 
 

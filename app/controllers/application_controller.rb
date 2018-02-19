@@ -25,14 +25,14 @@ class ApplicationController < ActionController::Base
       puts "mANDALE UN ALERT AL DELICUENTE"
     end
   end
-  def mqttaproved(usuario,puerta)
-    puts puerta.inspect
+  def mqttaproved(usuario,hard)
+    puts hard.inspect
 
-    h = Hardware.find(puerta.hardware_id)
+    puerta = hard.puerta
     if usuario.empresa_id === puerta.empresa_id
 
       MQTT::Client.connect('localhost') do |client|
-      client.publish(h.nserial,'A')
+      client.publish(hard.nserial,'A')
       Metrica.create(usuario:usuario.id,puerta:puerta.id).save
       end
     else
