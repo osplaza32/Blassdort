@@ -6,11 +6,10 @@ class PermisosController < ApplicationController
     usu = Usuario.find(idusuario)
     serial = params[:data][:puera]
     puerta = Hardware.find_by_nserial(serial).puerta
-    MQTT::Client.connect('localhost') do |client|
-      client.publish(serial, 'Abrir')
-      Metrica.create(usuario:usu.id,puerta:puerta.id,momento: Time.now.strftime('%H:%M %D'))
+    ApplicationController.new.mqttaproved(usu,puerta)
+    redirect_to :controller => 'puertas', :action => 'get'
 
-    end
+
   end
 
   def create
@@ -23,6 +22,8 @@ class PermisosController < ApplicationController
         Permiso.create(usuario_id:idUsua,puerta_id:puerta.id,dia_id:dia,horario_id:hora).save
       end
     end
+    redirect_to :controller => 'puertas', :action => 'add'
+
 
 
   end

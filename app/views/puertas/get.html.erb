@@ -1,4 +1,6 @@
-
+<% if flash[:notice] %>
+  <div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
 <div class="ibox-content">
   <div class="ibox-content"><div class="col-sm-4 m-b-xs">
     <a onclick="fnClickAddRow();" href="<%= url_for :controller => 'puertas',:action => 'create' %>" class="btn btn-primary ">Agregar Puerta</a></div>
@@ -26,32 +28,33 @@
       <th># Serial</th>
       <th>Cantidad de Usuarios</th>
       <th>Ultimo acceso</th>
-        <th></th>
+        <th> Acciones</th>
 
     </tr>
     </thead>
     <tbody>
 <%@datospuertas.each do |item|%>
-      <tr data-toggle="modal" data-target="#myModal4<%=Hardware.find(item.hardware_id).nserial%>" style="cursor: pointer;">
+      <tr>
 
-        <td> <%= item.descr%>  </td>
-        <td><%= Hardware.find(item.hardware_id).nserial %></td>
-        <td><%=Permiso.where(puerta_id: "#{item.id}").distinct.count(:usuario_id)%></td>
+        <td data-toggle="modal" data-target="#myModal4<%=Hardware.find(item.hardware_id).nserial%>" style="cursor: pointer;"> <%= item.descr%>  </td>
+        <td data-toggle="modal" data-target="#myModal4<%=Hardware.find(item.hardware_id).nserial%>" style="cursor: pointer;"><%= Hardware.find(item.hardware_id).nserial %></td>
+        <td data-toggle="modal" data-target="#myModal4<%=Hardware.find(item.hardware_id).nserial%>" style="cursor: pointer;"><%=Permiso.where(puerta_id: "#{item.id}").distinct.count(:usuario_id)%></td>
+        <td data-toggle="modal" data-target="#myModal4<%=Hardware.find(item.hardware_id).nserial%>" style="cursor: pointer;"><%=if Metrica.where('puerta =  ?',item.id).last then  Metrica.where('puerta =  ?',item.id).last.created_at.strftime('%D %H:%M').to_s else "no se registra accesos" end  %></td>
+        <td><%= button_to( "X", {:action => "delete", :controller => "puertas",data: { puera: "#{@CIPPER.encrypt(item.id.to_s)}" }} ,{:class =>"btn btn-primary"})%>
+        </td>
       </tr>
       <div class="modal inmodal" id="myModal4<%=Hardware.find(item.hardware_id).nserial%>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content animated fadeIn">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-              <i class="fa fa-info fa-5x"></i>
-              <h4 class="modal-title"><%= item.descr %></h4>
-              <small><%= item.descr %></small>
-            </div>
-            <div class="modal-body">
+              <h2 class=""><%= item.descr %></h2>
 
-              <p>
+            </div>
+            <div class="modal-body" style="text-align: center">
+
                 <img src="https://vignette.wikia.nocookie.net/halo/images/7/7a/BlastDoor_POA.png/revision/latest?cb=20150416054031" alt="<%= item.descr %>"/>
-              </p>
+
               <%=form_for :puertas, url: url_for( :controller => :puertas, :action => :update ) do |f| %>
                 <div class="form-group">
             <%= text_field 'Descriptcion', "puertas" ,:value => "#{item.descr}",:readonly => true %>

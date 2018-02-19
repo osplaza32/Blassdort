@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :onLIstener
+
 
   CIPPER = Gibberish::AES.new('Blast Door la lleva')
   def comprobacionMaestra(usuario,puerta)
@@ -20,12 +22,17 @@ class ApplicationController < ActionController::Base
       puts "mANDALE UN ALERT AL DELICUENTE"
     end
   end
-  def mqttaproved(usuario,hardware)
+  def mqttaproved(usuario,puerta)
 
-    puerta = hardware.puerta
-    MQTT::Client.connect('localhost') do |client|
-      client.publish(hardware.nserial,'Abrir')
-      Metrica.create(usuario:usuario.id,puerta:puerta.id,momento: Time.now.strftime('%H:%M %D'))
+    h = Hardware.find(puerta.hardware_id)
+    if usuario.empresa_id === puerta.empresa_id
+
+      MQTT::Client.connect('localhost') do |client|
+      client.publish(h.nserial,'A')
+      Metrica.create(usuario:usuario.id,puerta:puerta.id).save
+      end
+    else
+      puts "No lo mandes ctm"
     end
 
   end
@@ -44,7 +51,11 @@ class ApplicationController < ActionController::Base
       flash[:error] = "You must be logged in to access this section"
       redirect_to :root # halts request cycle
       end
-    end
+  end
+  def onLIstener
+    mqttSub = MqttSubscriberJob.new
+    mqttSub.run
+  end
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

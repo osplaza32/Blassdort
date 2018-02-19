@@ -73,9 +73,24 @@ class PuertasController < ApplicationController
 
 
   end
+  def delete
+    a = Puerta.find(CIPPER.decrypt(params[:data][:puera]))
+    a.destroy
+    if a.destroyed?
+      flash[:notice] = 'la Puerta a sido eliminada exitosamente'
+      redirect_to :controller => 'puertas', :action => 'get'
+
+    else
+      flash[:notice] = 'la Puerta no pudo ser eliminada'
+      redirect_to :controller => 'puertas', :action => 'get'
+
+    end
+
+  end
 
   def get
     if session.has_key?(:idempresa)
+      @CIPPER = Gibberish::AES.new('Blast Door la lleva')
 
       @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))
       @datospuertas = Empresa.find(CIPPER.decrypt(session[:idempresa])).puertas
