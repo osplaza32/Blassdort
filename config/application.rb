@@ -9,6 +9,10 @@ Bundler.require(:default, Rails.env)
 module BlastDoor
   class Application < Rails::Application
     config.time_zone = 'America/Santiago'
+    config.after_initialize do
+      mqttSub = MqttSubscriberJob.new
+      mqttSub.run
+    end
 
 
     console { ActiveRecord::Base.connection }

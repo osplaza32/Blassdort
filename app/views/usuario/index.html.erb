@@ -1,1 +1,66 @@
-<h1>HOLA USUARIO PEREROZO</h1>
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+    <div class="image" align="center" >
+      <%= image_tag"#{@logocompany}",size: "230x230", :alt => "BlastDoor", class: "img-circle" %>
+    </div>
+
+    <% @idPuertasAllow.each do |id|%>
+
+      <div class="widget lazur-bg text-center">
+
+          <i class="fa fa-columns fa-2x"></i>
+          <h4 class="font-bold no-margins">
+            <%=Puerta.find_by_id(id.puerta_id).descr%>
+          </h4>
+        <p>
+          <%= button_to( "Abrir Puerta", {:action => "comprobar", :controller => "usuario",data: { puera: "#{id.puerta_id}" }} ,{:class =>"btn btn-primary"})%>
+        </p>
+
+      </div>
+
+    <%end%>
+
+  </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+    var timeoutID;
+    var _this = this;
+    setup(_this);
+    function setup() {
+        console.log(_this);
+        //_this.addEventListener("mousemove", resetTimer, false);
+        //_this.addEventListener("mousedown", resetTimer, false);
+        _this.addEventListener("keypress", resetTimer, false);
+        _this.addEventListener("DOMMouseScroll", resetTimer, false);
+        _this.addEventListener("mousewheel", resetTimer, false);
+        _this.addEventListener("touchmove", resetTimer, false);
+        _this.addEventListener("MSPointerMove", resetTimer, false);
+        _this.addEventListener("click",resetTimer,false)
+
+        startTimer();
+    }
+    function startTimer() {
+        // wait 2 seconds before calling goInactive
+        timeoutID = window.setTimeout(goInactive, 120000);
+
+    }
+
+    function resetTimer(e) {
+
+            window.clearTimeout(timeoutID);
+            goActive();
+
+    }
+    function goInactive() {
+        // do something
+        console.log("algo")
+        // alert("inactivo");
+        window.location.replace("/app-blastDoor/pincode.html");}
+
+
+    function goActive() {
+        // do something
+
+        startTimer();
+    }
+</script>

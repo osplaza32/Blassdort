@@ -1,5 +1,7 @@
 # controller  for home
 class HomeController < ApplicationController
+  before_action :require_login
+
   def index
     if session.has_key?(:idempresa)
       @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))

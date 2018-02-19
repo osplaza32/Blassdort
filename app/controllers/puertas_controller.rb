@@ -1,4 +1,6 @@
 class PuertasController < ApplicationController
+  before_action :require_login
+
   def create
     if session.has_key?(:idempresa)
 
@@ -19,20 +21,28 @@ class PuertasController < ApplicationController
         if Puerta.find_by_hardware_id(hardware.id).nil?
           nuevaPuerta =  Puerta.create(descr:params[:puerta][:desc],empresa_id: CIPPER.decrypt(session[:idempresa]),hardware_id: hardware.id)
           if nuevaPuerta.save
-            redirect_to :controller => 'puerta', :action => 'get'
+            flash[:notice] = 'La puerta a sido creada con exito'
+
+            redirect_to :controller => 'puertas', :action => 'get'
 
           else
             flash[:notice] = 'tenemos un problema'
+            redirect_to :controller => 'puertas', :action => 'create'
+
           end
 
         else
          flash[:notice] = 'la serial esta en uso'
+         redirect_to :controller => 'puertas', :action => 'create'
 
-      end
+
+        end
 
       else
       flash[:notice] = 'revise la serial'
-    end
+      redirect_to :controller => 'puertas', :action => 'create'
+
+      end
     
     else
       redirect_to :root

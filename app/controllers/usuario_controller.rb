@@ -1,8 +1,14 @@
 class UsuarioController < ApplicationController
+
+  before_action :require_login
+
   def index
     @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))
-
-
+    @idPuertasAllow = Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).permisos.select(:puerta_id).distinct.to_a
+  end
+  def comprobar
+    comprobacionMaestra(Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])),
+                        Puerta.find_by_id(params[:data][:puera]))
   end
   def perfil
     @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))
@@ -14,6 +20,17 @@ class UsuarioController < ApplicationController
 
   def create
     @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))
+
+  end
+  def create3
+    @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))
+
+
+  end
+  def createpincode
+    idusuario = CIPPER.decrypt(session[:idusuario])
+    Usuario.update(idusuario, :pincode =>params[:signup][:pass_confirm])
+    puts Usuario.find_by_id(idusuario).pincode
 
   end
 
@@ -28,10 +45,11 @@ class UsuarioController < ApplicationController
     email = params[:usuarios][:email]
     cargo = params[:usuarios][:cargo]
     tel = params[:usuarios][:telefono]
+    ntarjeta = params[:usuarios][:tarjeta]
 
     if Usuario.where("email = ? AND empresa_id = ?", email.to_s, empresa.to_s).blank?
       pass = generate_activation_code
-      newuser = Usuario.create(nombre: nombre, email:email, apellido: apellido, password: pass, password_confirmation: pass, role: "usuario", empresa_id: empresa, cargo: cargo, telefono: tel)
+      newuser = Usuario.create(nombre: nombre,ntarjeta: ntarjeta,email:email, apellido: apellido, password: pass, password_confirmation: pass, role: "usuario", empresa_id: empresa, cargo: cargo, telefono: tel)
       if newuser.save
         begin
 

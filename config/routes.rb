@@ -5,6 +5,7 @@ BlastDoor::Application.routes.draw do
   get 'usuario/create'
   get 'usuario/update'
   get 'usuario/index'
+  get 'usuario/create3'
   post 'permisos/create'
   post 'permisos/comprobar'
   post 'sessions/auth'
@@ -12,6 +13,8 @@ BlastDoor::Application.routes.draw do
   post 'usuario/create2'
   post 'puertas/create2'
   post 'puertas/add'
+  post 'usuario/createpincode'
+  post 'usuario/comprobar'
   get 'puertas/create'
   get 'puertas/get'
   get 'puertas/perfil'
@@ -19,7 +22,6 @@ BlastDoor::Application.routes.draw do
   get 'usuarios/get'
   get 'metricas/get'
   get 'sessions/new'
-  get 'home/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
