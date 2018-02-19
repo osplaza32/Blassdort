@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :onLIstener
-
+  def onLIstener
+    mqttSub = MqttSubscriberJob.new
+    mqttSub.run
+  end
 
   CIPPER = Gibberish::AES.new('Blast Door la lleva')
   def comprobacionMaestra(usuario,puerta)
@@ -52,10 +55,7 @@ class ApplicationController < ActionController::Base
       redirect_to :root # halts request cycle
       end
   end
-  def onLIstener
-    mqttSub = MqttSubscriberJob.new
-    mqttSub.run
-  end
+
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
