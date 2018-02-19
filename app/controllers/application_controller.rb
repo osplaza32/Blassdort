@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
     end
   end
   def mqttaproved(usuario,puerta)
+    puts puerta.inspect
 
     h = Hardware.find(puerta.hardware_id)
     if usuario.empresa_id === puerta.empresa_id
