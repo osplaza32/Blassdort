@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
       if Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).role === "admin"
         redirect_to controller: 'metricas', action: 'get'
       else
-        redirect_to controller: 'usuario',action: if Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).pincode.blank? then 'create3' else 'index' end
+        redirect_to controller: 'usuario',action: if Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).pincode.blank? then 'create3' else 'pincode' end
       end
 
 
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
 
           when "usuario"
 
-            redirect_to controller: 'usuario',action: if usu.pincode.blank? then 'create3' else 'index' end
+            redirect_to controller: 'usuario',action: if usu.pincode.blank? then 'create3' else 'pincode' end
 
 
 

@@ -24,15 +24,40 @@ class UsuarioController < ApplicationController
 
   end
   def comprobandopincode
-    puts params
+    unless Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).pincode.blank?
+      if params[:signup][:pass_confirm] === Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).pincode
+        flash[:notice] ="true"
+        redirect_to :controller => 'usuario', :action => 'index'
+
+      else
+        flash[:notice] ="PIN CODE ERONEO PRUEBE DE NUEVO"
+        redirect_to :controller => 'usuario', :action => 'pincode'
+
+      end
+    else
+      redirect_to :root
+
+
+    end
+
   end
   def pincode
     @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))
 
   end
   def index
-    @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))
-    @idPuertasAllow = Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).permisos.select(:puerta_id).distinct.to_a
+    if flash[:notice] && flash[:notice] == "true"
+      @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))
+      @idPuertasAllow = Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).permisos.select(:puerta_id).distinct.to_a
+    else
+      flash[:notice] =" "
+
+      redirect_to :controller => 'usuario', :action => 'pincode'
+
+
+
+    end
+
   end
   def comprobar
     comprobacionMaestra(Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])),
@@ -58,7 +83,7 @@ class UsuarioController < ApplicationController
   def createpincode
     idusuario = CIPPER.decrypt(session[:idusuario])
     Usuario.update(idusuario, :pincode =>params[:signup][:pass_confirm])
-    redirect_to :controller => 'usuario', :action => 'index'
+    redirect_to :controller => 'usuario', :action => 'pincode'
 
 
   end

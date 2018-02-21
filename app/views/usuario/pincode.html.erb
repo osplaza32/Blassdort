@@ -11,6 +11,9 @@
     <%= form_for :usuario, :url => url_for(:controller => 'usuario', :action => 'comprobandopincode'),:html => {:id => "PINform"} do |f| %>
       <p>
         Ingresa tu pincode
+        <% if flash[:notice] %>
+        <%=flash[:notice]%>
+      <% end %>
       </p>
       <input id='PINbox' type='password' maxlength="4" value='' name='PINbox' disabled />
       <br/>
