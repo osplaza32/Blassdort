@@ -1,10 +1,10 @@
 
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
+
 <div class="wrapper wrapper-content animated fadeIn">
   <div class="row">
-
+    <% if flash[:notice] %>
+      <div class="notice alert"><%=  if flash[:notice].include?"is the wrong length (should be 26 characters)" then "el numero de tarjeta debe ser igual a 26 caracteres" else flash[:notice] end %></div>
+    <% end %>
         <div class="ibox-content">
           <%= form_for :usuarios, :url => url_for(:controller => 'usuario', :action => 'create2') do |f| %>
             <div class="form-group">
@@ -18,13 +18,13 @@
               Email: <%= f.email_field :email, class: 'form-control' %></div>
             <div class="form-group">
 
-              Telefono: <%= f.telephone_field :telefono, class: 'form-control' %></div>
+              Telefono: <%= f.telephone_field :telefono, class: 'form-control telefono' %></div>
             <div class="form-group">
 
               Cargo: <%= f.text_field :cargo, class: 'form-control' %></div>
             <div class="form-group">
 
-              nª tarjeta: <%= f.text_field :tarjeta, class: 'form-control' %></div>
+              nª tarjeta: <%= f.text_field :tarjeta, class: 'form-control binario' %></div>
 
 
             <%#=Password: <%= f.password_field :password %>
@@ -38,6 +38,42 @@
     </div>
   </div>
 
-</div>
 
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".telefono").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 187]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+
+        });
+        $(".binario").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl+A, Command+A
+                (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right, down, up
+                (e.keyCode >= 35 && e.keyCode <= 40)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 49)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+    });
+
+</script>
 

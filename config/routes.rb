@@ -6,6 +6,8 @@ BlastDoor::Application.routes.draw do
   get 'usuario/update'
   get 'usuario/index'
   get 'usuario/create3'
+  get 'usuario/pincode'
+  post 'usuario/comprobandopincode'
   post 'permisos/create'
   post 'permisos/comprobar'
   post 'sessions/auth'

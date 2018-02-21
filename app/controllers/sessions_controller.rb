@@ -1,5 +1,14 @@
 class SessionsController < ApplicationController
   def new
+    unless session[:idusuario].blank?
+      if Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).role === "admin"
+        redirect_to controller: 'metricas', action: 'get'
+      else
+        redirect_to controller: 'usuario',action: if Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).pincode.blank? then 'create3' else 'index' end
+      end
+
+
+    end
   end
   def file_logo
     'blastdoorsinblanco.png'

@@ -1,3 +1,12 @@
+
+form.form-especial {
+  text-align: center;
+  margin-top: 7em;
+}
+
+nav.navbar.navbar-static-top.white-bg.espe {
+  background-color: white;
+}
 input.btn.space.btn-primary {
   margin-right: 5em;
 }
@@ -27,10 +36,12 @@ div#“resp-table” {
 }
 body {
   font-family: $font-stack;
-  background-color: #2f4050;
+  background-color: #AAAABF;
   font-size: 13px;
   color: $text-color;
   overflow-x: hidden;
+  text-align: center;
+  align-content: center;
 }
 
 body.boxed-layout {

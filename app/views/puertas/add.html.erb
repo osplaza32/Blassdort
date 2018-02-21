@@ -9,12 +9,12 @@
     </thead>
     <tbody>
     <%@datosusuarios.each do |item| %>
-      <tr data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;">
+      <tr data-toggle="modal" data-target="#myModal4<%=item.created_at.strftime('%H%M%S').to_s%>" style="cursor: pointer;">
 
 
           <td> <%= item.nombre%>  </td>
       </tr>
-      <div class="modal inmodal" id="myModal4<%=item.nombre%>" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal inmodal" id="myModal4<%=item.created_at.strftime('%H%M%S').to_s%>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content animated fadeIn">
             <div class="modal-header">

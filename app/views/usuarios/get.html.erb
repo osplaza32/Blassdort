@@ -1,7 +1,8 @@
 
+
 <div class="ibox-content">
   <div class="ibox-content"><div class="col-sm-4 m-b-xs">
-    <a onclick="fnClickAddRow();" href="<%= url_for :controller => 'usuario',:action => 'create' %>" class="btn btn-primary ">Agregar Nuevo Usuarios</a></div>
+    <a  href="<%= url_for :controller => 'usuario',:action => 'create' %>" class="btn btn-primary ">Agregar Nuevo Usuarios</a></div>
 
     <div class="col-sm-3">
       <div class="input-group">
@@ -18,7 +19,7 @@
       </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container table-responsive">
 
     <table class="table table-bordered table-responsive table-hover" id="editable">
     <thead>
@@ -34,13 +35,13 @@
     <% @datosusuario.each do |item| %>
       <tr>
 
-        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"> <%= item.nombre%>  </td>
-        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"><%= item.apellido %></td>
-        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"><%= item.email %></td>
-        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"><%= item.telefono%></td>
-        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"><%= item.cargo %></td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.created_at.strftime('%H%M%S').to_s%>" style="cursor: pointer;"> <%= item.nombre%>  </td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.created_at.strftime('%H%M%S').to_s%>" style="cursor: pointer;"><%= item.apellido %></td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.created_at.strftime('%H%M%S').to_s%>" style="cursor: pointer;"><%= item.email %></td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.created_at.strftime('%H%M%S').to_s%>" style="cursor: pointer;"><%= item.telefono%></td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.created_at.strftime('%H%M%S').to_s%>" style="cursor: pointer;"><%= item.cargo %></td>
       </tr>
-      <div class="modal inmodal" id="myModal4<%=item.nombre%>" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal inmodal" id="myModal4<%=item.created_at.strftime('%H%M%S').to_s%>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content animated fadeIn">
             <div class="modal-header">
@@ -89,14 +90,14 @@ Cargo:
 
   </table>
   </div>
+    <% if flash[:notice] %>
+      <div class="notice alert"><%= if flash[:notice].include?"is the wrong length (should be 26 characters)" then "el numero de tarjeta debe ser igual a 26" else flash[:notice] end %></div>
+    <% end %>
   </div>
 
 
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
 
 
   <script type="text/javascript">

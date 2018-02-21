@@ -16,12 +16,15 @@ class PermisosController < ApplicationController
     idUsua = CIPPER.decrypt(params[:usuario][:id])
     arrday = params[:d_ids]
     arrh = params[:h_ids]
+    Permiso.where('usuario_id = ? and puerta_id = ?',idUsua.to_s,puerta.id.to_s).delete_all
+
     arrday.each do |dia|
       arrh.each do |hora|
         Permiso.create(usuario_id:idUsua,puerta_id:puerta.id,dia_id:dia,horario_id:hora).save
       end
     end
-    redirect_to :controller => 'puertas', :action => 'add'
+    flash[:notice] = "Los permisos han sido creado para el usuario #{Usuario.find_by_id(idUsua.to_i).nombre}"
+    redirect_to :controller => 'puertas', :action => 'get'
 
 
 
