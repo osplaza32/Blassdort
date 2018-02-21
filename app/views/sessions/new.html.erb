@@ -1,6 +1,6 @@
 <div class="middle-box text-center loginscreen  animated fadeInDown">
     <div class="especial">
-      <%= image_tag "logos/blastdoorsinblanco.png", alt: "BlastDoor" %>
+      <%= image_tag "logos/blastdoorsinblanco.png", alt: "BlastDoor",class:"img-responsive" %>
 
 
     </div>
@@ -10,10 +10,10 @@
   <%=form_for :sessions, url: url_for( :controller => :sessions, :action => :auth ),:html => {class:"form-especial"} do |f| %>
 
 <div class="form-group">
-      <%= email_field(:usuariomail, :email,class: 'form-control login') %>
+      <%= email_field(:usuariomail, :email,class: 'form-control login',placeholder: "Email") %>
       </div>
       <div class="form-group">
-        <%= password_field_tag(:usuariopass,nil,class: 'form-control login') %>
+        <%= password_field_tag(:usuariopass,nil,class: 'form-control login',placeholder: "Clave") %>
       </div>
 
       <button type="submit" class="btn btn-default block full-width m-b login-button">Login</button>
