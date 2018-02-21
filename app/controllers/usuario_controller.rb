@@ -1,6 +1,9 @@
 class UsuarioController < ApplicationController
 
   before_action :require_login
+  def update
+    puts params
+  end
 
   def index
     @logocompany = file_logo(CIPPER.decrypt(session[:idempresa]))

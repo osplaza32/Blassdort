@@ -18,8 +18,9 @@
       </div>
     </div>
   </div>
-  <div>
-  <table class="table table-striped table-bordered table-hover table-responsive" id="editable">
+  <div class="container">
+
+    <table class="table table-bordered table-responsive table-hover" id="editable">
     <thead>
     <tr>
       <th>Nombre</th>
@@ -31,13 +32,13 @@
     </thead>
     <tbody>
     <% @datosusuario.each do |item| %>
-      <tr data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;">
+      <tr>
 
-        <td> <%= item.nombre%>  </td>
-        <td><%= item.apellido %></td>
-        <td><%= item.email %></td>
-        <td><%= item.telefono%></td>
-        <td><%= item.cargo %></td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"> <%= item.nombre%>  </td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"><%= item.apellido %></td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"><%= item.email %></td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"><%= item.telefono%></td>
+        <td data-toggle="modal" data-target="#myModal4<%=item.nombre%>" style="cursor: pointer;"><%= item.cargo %></td>
       </tr>
       <div class="modal inmodal" id="myModal4<%=item.nombre%>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -50,7 +51,7 @@
 
               <p>
               </p>
-              <%=form_for :puertas, url: url_for( :controller => :usuario, :action => :update )  do |f| %>
+              <%=form_for :puertas, url: url_for( :controller => :usuario, :action => :update ), :html => { :id => "#{item.created_at.strftime('%H%M%S').to_s}form" } do |f| %>
                 <div class="form-group">
                   Nombre:
                   <%=text_field 'Descriptcion', "Nombre" ,:value => "#{item.nombre}",:readonly => true,class: "form-control #{item.created_at.strftime('%H%M%S').to_s}" %>
@@ -61,9 +62,10 @@ Cargo:
                   Email:
                   <%= text_field 'Descriptcion', "Email" ,:value => "#{item.email}",:readonly => true,class: "form-control #{item.created_at.strftime('%H%M%S').to_s}"%>
                   Telefono:
-                  <%= text_field 'Descriptcion', "Telefono" ,:value => "#{item.telefono}",:readonly => true,class: "form-control #{item.created_at.strftime('%H%M%S').to_s}" %>
+                  <%= telephone_field 'Descriptcion', "Telefono" ,:value => "#{item.telefono}",:readonly => true,class: "form-control #{item.created_at.strftime('%H%M%S').to_s} telefono" %>
                   nª Tarjeta:
-                  <%= text_field 'Descriptcion', "Tarjeta" ,:value => "#{item.email}",:readonly => true,class: "form-control #{item.created_at.strftime('%H%M%S').to_s}" %>
+                  <%= telephone_field 'Descriptcion', "Tarjeta" ,:value => "#{item.ntarjeta}",:readonly => true,class: "form-control #{item.created_at.strftime('%H%M%S').to_s} binario",maxlength:26,minlength:26 %>
+                  <%= hidden_field("Description", "secret", :value => "#{item.id}") %>
 
 
 
@@ -87,6 +89,7 @@ Cargo:
 
   </table>
   </div>
+  </div>
 
 
 </div>
@@ -97,11 +100,50 @@ Cargo:
 
 
   <script type="text/javascript">
+      $(document).ready(function() {
+          $(".telefono").keydown(function (e) {
+              // Allow: backspace, delete, tab, escape, enter and .
+              if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 187]) !== -1 ||
+                  // Allow: Ctrl+A, Command+A
+                  (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                  // Allow: home, end, left, right, down, up
+                  (e.keyCode >= 35 && e.keyCode <= 40)) {
+                  // let it happen, don't do anything
+                  return;
+              }
+              // Ensure that it is a number and stop the keypress
+              if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                  e.preventDefault();
+              }
+
+          });
+          $(".binario").keydown(function (e) {
+              // Allow: backspace, delete, tab, escape, enter and .
+              if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+                  // Allow: Ctrl+A, Command+A
+                  (e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                  // Allow: home, end, left, right, down, up
+                  (e.keyCode >= 35 && e.keyCode <= 40)) {
+                  // let it happen, don't do anything
+                  return;
+              }
+              // Ensure that it is a number and stop the keypress
+              if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 49)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                  e.preventDefault();
+              }
+          });
+      });
 function editForm(e) {
     $('.'+e.id).removeAttr('readonly');
-     $(e).replaceWith( "<input type='submit' value='aceptar' class='btn btn-primary'>" );
+     $(e).replaceWith( "<input id='"+e.id+"trigger' type='submit' value='aceptar' class='btn btn-primary'>" );
+    $( "#"+e.id+"trigger" ).click(function() {
+        $( "#"+e.id+"form" ).submit();
+
+
+    });
 
 }
+
 
 
 

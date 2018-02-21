@@ -20,28 +20,29 @@
       </div>
     </div>
   </div>
-  <table class="table table-striped table-bordered table-hover " id="editable">
+  <table class="table table-striped table-bordered table-responsive table-hover " id="editable">
     <thead>
 
       <tr>
+        <th class ="esp"></th>
       <th>Puerta</th>
       <th># Serial</th>
       <th>Cantidad de Usuarios</th>
       <th>Ultimo acceso</th>
-        <th> Acciones</th>
 
     </tr>
     </thead>
     <tbody>
 <%@datospuertas.each do |item|%>
       <tr>
+        <td class ="esp">
+        <%= button_to( "X", {:action => "delete", :controller => "puertas",data: { puera: "#{@CIPPER.encrypt(item.id.to_s)}" }} ,{:class =>"btn btn-primary"})%></td>
 
         <td data-toggle="modal" data-target="#myModal4<%=Hardware.find(item.hardware_id).nserial%>" style="cursor: pointer;"> <%= item.descr%>  </td>
         <td data-toggle="modal" data-target="#myModal4<%=Hardware.find(item.hardware_id).nserial%>" style="cursor: pointer;"><%= Hardware.find(item.hardware_id).nserial %></td>
         <td data-toggle="modal" data-target="#myModal4<%=Hardware.find(item.hardware_id).nserial%>" style="cursor: pointer;"><%=Permiso.where(puerta_id: "#{item.id}").distinct.count(:usuario_id)%></td>
         <td data-toggle="modal" data-target="#myModal4<%=Hardware.find(item.hardware_id).nserial%>" style="cursor: pointer;"><%=if Metrica.where('puerta =  ?',item.id).last then  Metrica.where('puerta =  ?',item.id).last.created_at.strftime('%D %H:%M').to_s else "no se registra accesos" end  %></td>
-        <td><%= button_to( "X", {:action => "delete", :controller => "puertas",data: { puera: "#{@CIPPER.encrypt(item.id.to_s)}" }} ,{:class =>"btn btn-primary"})%>
-        </td>
+
       </tr>
       <div class="modal inmodal" id="myModal4<%=Hardware.find(item.hardware_id).nserial%>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -55,16 +56,10 @@
 
                 <img src="https://vignette.wikia.nocookie.net/halo/images/7/7a/BlastDoor_POA.png/revision/latest?cb=20150416054031" alt="<%= item.descr %>"/>
 
-              <%=form_for :puertas, url: url_for( :controller => :puertas, :action => :update ) do |f| %>
-                <div class="form-group">
-            <%= text_field 'Descriptcion', "puertas" ,:value => "#{item.descr}",:readonly => true %>
-                </div>
-              <%end%>
 
             </div>
             <div class="modal-footer">
-              <%= button_to( "Agregar Usuario", {:action => "add", :controller => "puertas",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn btn-primary"})%>
-              <button type="button" class="btn btn-primary">Editar</button>
+              <%= button_to( "Agregar Usuario", {:action => "add", :controller => "puertas",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn space btn-primary"})%>
               <%= button_to( "Abrir Puerta", {:action => "comprobar", :controller => "permisos",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn btn-primary"})%>
 
 

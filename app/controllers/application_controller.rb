@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :onLIstener
+  # before_action :onLIstener
   def onLIstener
     mqttSub = MqttSubscriberJob.new
     mqttSub.run

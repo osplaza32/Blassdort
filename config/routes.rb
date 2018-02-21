@@ -14,6 +14,7 @@ BlastDoor::Application.routes.draw do
   post 'puertas/create2'
   post 'puertas/add'
   post 'puertas/delete'
+  post 'usuario/update'
 
   post 'usuario/createpincode'
   post 'usuario/comprobar'
