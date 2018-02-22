@@ -1,3 +1,22 @@
+.actions-modals.col-sm {
+  position: absolute;
+  right: 0;
+  width: 200px;
+}
+.edicion-esp {
+  margin-right: 5em;
+  display: inherit;
+}
+.modal-footer {
+  width: 100%;
+  margin-top: 0;
+}
+input#Descriptcion_Serial {
+  text-align: center;
+}
+input#Descriptcion_Nombre {
+  text-align: center;
+}
 form.disable_on_submit {
   float: right;
   /* height: auto; */
@@ -14,7 +33,7 @@ nav.navbar.navbar-static-top.white-bg.espe {
   background-color: white;
 }
 input.btn.space.btn-primary {
-  margin-right: 5em;
+  margin-right: 0.5em;
 }
 .modal-footer {
   display: inline-flex;

@@ -66,9 +66,11 @@
 
             </div>
             <div class="modal-footer">
+              <div class="edicion-esp col-sm">
               <%= button_to( "Agregar Usuario", {:action => "add", :controller => "puertas",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn space btn-primary"})%>
-              <%= button_to( "Abrir Puerta", {:action => "comprobar", :controller => "permisos",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn btn-primary"})%>
-                <button  type="button" id="<%= Hardware.find(item.hardware_id).nserial %>" class="btn btn-primary" onClick='editForm(this)' >Editar</button>
+                <button  type="button" id="<%= Hardware.find(item.hardware_id).nserial %>" class="btn btn-primary" onClick='editForm(this)' >Editar</button></div>
+              <div class="actions-modals col-sm">
+                <%= button_to( "Abrir Puerta", {:action => "comprobar", :controller => "permisos",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn btn-primary"})%></div>
 
 
             </div>
