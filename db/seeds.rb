@@ -9,7 +9,7 @@ Hardware.create(nserial: 'ABCDEF123456')
 
 Puerta.create(descr:'Bodega',empresa_id:Empresa.find_by_nombre('cornershop').id,hardware_id:Hardware.find_by_nserial('123456ABCDEF').id)
 
-Puerta.create(descr:'Bodega',empresa_id:Empresa.find_by_nombre('cornershop').id,hardware_id:Hardware.find_by_nserial('ABCDEF123456').id)
+Puerta.create(descr:'Oficina',empresa_id:Empresa.find_by_nombre('cornershop').id,hardware_id:Hardware.find_by_nserial('ABCDEF123456').id)
 
 Horario.create(inicio: '00:00', fin: '00:29')
 Horario.create(inicio: '00:30', fin: '00:59')
