@@ -7,13 +7,26 @@ input.btn.btn-primary.esp {
 }
 
 .clock {
-  line-height: 5em;
-  background: #222;
-  color: #eee;
+  line-height: 1.428571429;
+  background: #1ab394;
+  color: #000000;
   text-align: center;
-  border-radius: 15px;
-  box-shadow: 0 0 7px #222;
-  text-shadow: 0 0 3px #fff;
+  padding: 6px 12px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .actions-modals.col-sm {
   position: absolute;
