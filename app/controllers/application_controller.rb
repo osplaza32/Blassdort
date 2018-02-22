@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
     if !permisosParaHoy.blank?
       permisosParaHoy.each do |idhoras|
         rango = Horario.find(idhoras.horario_id)
-        h1 = rango.inicio.to_time.strftime("%H%M")
-        h2 = rango.fin.to_time.strftime("%H%M")
+        h1 = rango.inicio.to_time
+        h2 = rango.fin.to_time
         puts horaActual.strftime("%H%M")
         puts h1.strftime("%H%M")
         puts h2.strftime("%H%M")
