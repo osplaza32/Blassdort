@@ -55,7 +55,7 @@
                   <%=text_field 'Descriptcion', "Nombre" ,:value => "#{item.descr}",:readonly => true,class: "form-control #{Hardware.find(item.hardware_id).nserial}" %></div>
                 <div class="form-group">
                   <%=text_field 'Descriptcion', "Serial" ,:value => "#{Hardware.find(item.hardware_id).nserial}",:readonly => true ,class: "form-control #{Hardware.find(item.hardware_id).nserial}"%></div>
-                <%=hidden_field 'Descriptcion', "secret" ,:value => "#{item.i}",:readonly => true ,class: "form-control #{Hardware.find(item.hardware_id).nserial}"%>
+                <%=hidden_field 'Descriptcion', "secret" ,:value => "#{@CIPPER.encrypt(item.id)}",:readonly => true ,class: "form-control #{Hardware.find(item.hardware_id).nserial}"%>
                   <%end%>
 
             </div>

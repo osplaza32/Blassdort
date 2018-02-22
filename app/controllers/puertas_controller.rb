@@ -114,9 +114,9 @@ class PuertasController < ApplicationController
     @CIPPER = Gibberish::AES.new('Blast Door la lleva')
 
     if Hardware.find_by_nserial(params[:Descriptcion][:Serial].to_s)
-      if Hardware.find_by_nserial(params[:Descriptcion][:Serial].to_s).puerta.nil? or Puerta.find_by_id(params[:Descriptcion][:secret]).descr != params[:Descriptcion][:Nombre].to_s
+      if Hardware.find_by_nserial(params[:Descriptcion][:Serial].to_s).puerta.nil? or Puerta.find_by_id(CIPPER.decrypt(params[:Descriptcion][:secret])).descr != params[:Descriptcion][:Nombre].to_s
        hidnew = Hardware.find_by_nserial(params[:Descriptcion][:Serial].to_s).id
-       newPuerta = Puerta.find_by_id(params[:Descriptcion][:secret])
+       newPuerta = Puerta.find_by_id(CIPPER.decrypt(params[:Descriptcion][:secret]))
        newPuerta.update(descr:params[:Descriptcion][:Nombre].to_s,hardware_id:hidnew)
         if newPuerta.valid?
           newPuerta.save
