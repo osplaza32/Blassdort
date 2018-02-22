@@ -12,6 +12,8 @@ gem 'sass-rails'
 #MQTT
 gem 'mqtt', :git => 'https://github.com/njh/ruby-mqtt.git'
 
+gem 'momentjs-rails'
+gem 'fittextjs_rails'
 
 # Use Uglifier as compressor for JavaScript assets
 #gem 'uglifier'

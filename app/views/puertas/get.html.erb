@@ -49,7 +49,14 @@
           <div class="modal-content animated fadeIn">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-              <h2 class=""><%= item.descr %></h2>
+              <%=form_for :puertas, url: url_for( :controller => :puertas, :action => :update ), :html => { :id => "#{Hardware.find(item.hardware_id).nserial}form" } do |f| %>
+                <div class="form-group">
+
+                  <%=text_field 'Descriptcion', "Nombre" ,:value => "#{item.descr}",:readonly => true,class: "form-control #{Hardware.find(item.hardware_id).nserial}" %></div>
+                <div class="form-group">
+                  <%=text_field 'Descriptcion', "Serial" ,:value => "#{Hardware.find(item.hardware_id).nserial}",:readonly => true ,class: "form-control #{Hardware.find(item.hardware_id).nserial}"%></div>
+                <%=hidden_field 'Descriptcion', "secret" ,:value => "#{item.i}",:readonly => true ,class: "form-control #{Hardware.find(item.hardware_id).nserial}"%>
+                  <%end%>
 
             </div>
             <div class="modal-body" style="text-align: center">
@@ -61,6 +68,7 @@
             <div class="modal-footer">
               <%= button_to( "Agregar Usuario", {:action => "add", :controller => "puertas",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn space btn-primary"})%>
               <%= button_to( "Abrir Puerta", {:action => "comprobar", :controller => "permisos",data: { puera: "#{Hardware.find(item.hardware_id).nserial}" }} ,{:class =>"btn btn-primary"})%>
+                <button  type="button" id="<%= Hardware.find(item.hardware_id).nserial %>" class="btn btn-primary" onClick='editForm(this)' >Editar</button>
 
 
             </div>
@@ -73,10 +81,20 @@
   </table>
 
 </div>
-</div>
-</div>
-</div>
-</div>
+<script type="text/javascript">
 
+    function editForm(e) {
+        $('.'+e.id).removeAttr('readonly');
+        $(e).replaceWith( "<input id='"+e.id+"trigger' type='submit' value='aceptar' class='btn btn-primary'>" );
+        $( "#"+e.id+"trigger" ).click(function() {
+            $( "#"+e.id+"form" ).submit();
+
+
+        });
+
+    }
+
+
+</script>
 
 

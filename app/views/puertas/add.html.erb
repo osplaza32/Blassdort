@@ -1,9 +1,26 @@
 <div class="ibox-content">
-
   <table class="table">
     <thead>
     <tr>
-      <th>NOMBRE EMPLEADO</th>
+      <th>empleados ya agregados</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <%@idUsuarios.each do |i|%>
+    <tr>
+      <td>
+        <%= Usuario.find_by_id(i.usuario_id).nombre %>
+
+      </td>
+    </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Todos los empleados</th>
 
     </tr>
     </thead>

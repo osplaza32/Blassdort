@@ -123,4 +123,19 @@ class UsuarioController < ApplicationController
 
       end
   end
+  def delete
+    a = Usuario.find_by_id(CIPPER.decrypt(params[:data][:usuario]))
+    b = Usuario.find_by_id(CIPPER.decrypt(params[:data][:usuario])).permisos
+    b.destroy
+    a.destroy
+    if a.destroyed?
+      flash[:notice] = 'El Usuario a sido eliminada exitosamente'
+      redirect_to :controller => 'usuarios', :action => 'get'
+
+    else
+      flash[:notice] = 'El  Usuario no pudo ser eliminada'
+      redirect_to :controller => 'usuarios', :action => 'get'
+
+    end
+  end
 end

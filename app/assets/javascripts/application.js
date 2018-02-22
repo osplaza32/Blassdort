@@ -11,6 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require dist/dropzone.js
+//= require moment
+//= require jquery.fittext.js
+//= require jquery.min.js
+
 
 //= require jquery/jquery-2.1.1.js
 //= require bootstrap-sprockets
@@ -18,7 +22,14 @@
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require_tree .
+$( document ).ready(function() {
 
+    function update() {
+        $('#clock').html(moment().format('DD/MM/YYYY H:mm:ss'));
+    }
+
+    setInterval(update, 1000);}
+);
 
 var loadFile = function(event) {
     var reader;
