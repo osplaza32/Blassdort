@@ -8,18 +8,18 @@ class ApplicationController < ActionController::Base
   CIPPER = Gibberish::AES.new('Blast Door la lleva')
   def comprobacionMaestra(usuario,puerta)
     day = Time.zone.now.strftime("%A")
-    horaActual = Time.zone.now
+    horaActual = Time.zone.now.strftime("%H%M")
     id_day = getidday(day)
     permisosParaHoy =Permiso.where(usuario_id: usuario.id,puerta_id:puerta.id,dia_id:id_day).select(:horario_id).to_a
     if !permisosParaHoy.blank?
       permisosParaHoy.each do |idhoras|
         rango = Horario.find(idhoras.horario_id)
-        h1 = rango.inicio.to_time
-        h2 = rango.fin.to_time
-        puts horaActual
-        puts h1
-        puts h2
-        if horaActual.between?(h1, h2)
+        h1 = rango.inicio.to_time.strftime("%H%M")
+        h2 = rango.fin.to_time.strftime("%H%M")
+        puts horaActual.strftime("%H%M")
+        puts h1.strftime("%H%M")
+        puts h2.strftime("%H%M")
+        if horaActual.strftime("%H%M").between?(h1.strftime("%H%M"), h2.strftime("%H%M"))
           puts "entro"
           mqttaproved(usuario,Hardware.find(puerta.hardware_id))
           break
