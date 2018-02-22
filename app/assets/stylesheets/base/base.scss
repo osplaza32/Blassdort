@@ -1,3 +1,17 @@
+body {
+  user-select: none;
+  user-drag: none;
+}
+
+.clock {
+  line-height: 5em;
+  background: #222;
+  color: #eee;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 7px #222;
+  text-shadow: 0 0 3px #fff;
+}
 .actions-modals.col-sm {
   position: absolute;
   right: 0;
