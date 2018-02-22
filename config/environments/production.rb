@@ -1,6 +1,7 @@
 BlastDoor::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.time_zone = 'America/Santiago'
+  config.active_record.default_timezone = :local
   # Code is not reloaded between requests.
   config.cache_classes = true
 
