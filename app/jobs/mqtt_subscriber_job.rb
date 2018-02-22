@@ -13,6 +13,9 @@
 
        c.get do |topic,message|
          puts "#{topic}: #{message}"
+         if Usuario.find_by_ntarjeta(message)
+
+
 
          usu = Usuario.find_by_ntarjeta(message)
          pur = Hardware.find_by_nserial(topic.slice(0..(topic.index('/'))-1)).puerta
@@ -33,8 +36,11 @@
          else
            puts "Este usuario  no puede abrir esta puerta"
          end
+         else
+           puts "esa tarjeta no existe"
 
-       end
+         end
+         end
       end
     end
   end
