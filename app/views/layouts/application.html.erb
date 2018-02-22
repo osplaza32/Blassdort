@@ -43,6 +43,11 @@
     <!-- End wrapper-->
   <%else%>
     <div id="wrapper" style="height: 1000px" class="white-bg ">
+      <%= if  current_page?(root_url) then  else form_tag  :sessions_delete ,:class => 'disable_on_submit' do
+             button_tag class:"btn btn-primary" do
+               content_tag :i, 'sign-out', :class => 'fa fa-sign-out'
+          end
+          end  end %>
       <div id="wrapper" class="gray-bg">
       <%= yield %>
       </div>

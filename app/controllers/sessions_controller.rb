@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+
     unless session[:idusuario].blank?
       if Usuario.find_by_id(CIPPER.decrypt(session[:idusuario])).role === "admin"
         redirect_to controller: 'metricas', action: 'get'
@@ -12,6 +13,19 @@ class SessionsController < ApplicationController
   end
   def file_logo
     'blastdoorsinblanco.png'
+  end
+  def delete
+    session.clear
+    reset_session
+    cookies.to_h.each_pair do |k, v|
+      cookies[k.to_sym] = { :value => '',
+                            :path => '/',
+                            :domain => '.domain.com',
+                            :expire => 1.day.ago }
+    end
+
+    redirect_to :root
+
   end
   def auth
    begin

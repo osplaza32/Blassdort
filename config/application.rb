@@ -9,6 +9,8 @@ Bundler.require(:default, Rails.env)
 module BlastDoor
   class Application < Rails::Application
     config.time_zone = 'America/Santiago'
+    config.active_record.default_timezone = :local
+
 
 
 
