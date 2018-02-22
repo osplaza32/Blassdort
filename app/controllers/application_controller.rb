@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   CIPPER = Gibberish::AES.new('Blast Door la lleva')
   def comprobacionMaestra(usuario,puerta)
-    day = Time.now.strftime("%A")
+    day = Time.zone.now.strftime("%A")
     horaActual = Time.zone.now
     id_day = getidday(day)
     permisosParaHoy =Permiso.where(usuario_id: usuario.id,puerta_id:puerta.id,dia_id:id_day).select(:horario_id).to_a
