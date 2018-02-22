@@ -1,4 +1,4 @@
-class MqttSubscriberJob < ApplicationJob
+  class MqttSubscriberJob < ApplicationJob
 
   def run
     Thread.new do

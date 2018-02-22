@@ -1,9 +1,5 @@
 class ApplicationController < ActionController::Base
-  # before_action :onLIstener
-  def onLIstener
-    mqttSub = MqttSubscriberJob.new
-    mqttSub.run
-  end
+
 
   CIPPER = Gibberish::AES.new('Blast Door la lleva')
   def comprobacionMaestra(usuario,puerta)
