@@ -2,19 +2,19 @@
 
 <div class="ibox-content">
   <div class="ibox-content"><div class="col-sm-4 m-b-xs">
-    <a  href="<%= url_for :controller => 'usuario',:action => 'create' %>" class="btn btn-primary ">Agregar Nuevo Usuarios</a></div>
+    <a  href="<%= url_for :controller => 'usuario',:action => 'create' %>" class="btn epa btn-primary ">Agregar Usuario</a></div>
 
     <div class="col-sm-3">
       <div class="input-group">
-        <input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button>
+        <input type="text" placeholder="" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary">Buscar</button>
                                     </span>
       </div>
     </div>
-    <div class="col-sm-4 m-b-xs">
+    <div class="col-sm-4 m-b-xs export">
       <div data-toggle="buttons" class="btn-group">
         <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> CSV </label>
-        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> EXCEL </label>
+        <label class="btn btn-sm btn-white "> <input type="radio" id="option2" name="options"> EXCEL </label>
         <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> PDF </label>
       </div>
     </div>

@@ -1,9 +1,22 @@
+.col-sm-4.m-b-xs {
+  left: 0;
+  width: 200px;
+}
+.col-sm-4.m-b-xs.export {
+  float: right;
+}
+a.btn.btn-primary.epa {
+  float: left;
+}
 body {
   user-select: none;
   user-drag: none;
 }
 input.btn.btn-primary.esp {
   margin-right: 1em;
+}
+ul.nav.navbar-top-links.navbar-right.navbar-header {
+  padding-top: 1em;
 }
 
 .clock {
@@ -1116,6 +1129,8 @@ table.table-mail tr td {
 }
 
 .m-b-xs {
+  margin-left: -20px;
+
   margin-bottom: 5px;
 }
 
