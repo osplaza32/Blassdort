@@ -28,10 +28,13 @@ class SessionsController < ApplicationController
 
   end
   def auth
-   begin
-      usu = Usuario.find_by_email params[:usuariomail][:email]
-
-      if usu.authenticate(params[:usuariopass])
+   #begin
+       email = params[:usuariomail][:email].to_s
+       clave =params[:usuariopass].to_s
+       puts clave
+      usu = Usuario.find_by_email(email)
+      if usu.authenticate(clave)
+        puts "autentica?"
         session[:idusuario] = CIPPER.encrypt(usu.id.to_s)
         session[:idempresa] = CIPPER.encrypt(usu.empresa_id.to_s)
         case usu.role
@@ -49,11 +52,11 @@ class SessionsController < ApplicationController
         redirect_to :root
 
       end
-   rescue
-      flash[:notice] = "Esta cuenta no se a encontrado"
+   #rescue
+      #flash[:notice] = "Esta cuenta no se a encontrado"
 
-      redirect_to :root
-   end
+      #redirect_to :root
+  # end
   end
 
 end

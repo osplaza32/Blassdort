@@ -88,7 +88,7 @@ class UsuarioController < ApplicationController
 
   end
 
-  def generate_activation_code(size = 7)
+  def generate_activation_code(size = 10)
     charset = %w[2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z]
     (0...size).map { charset.to_a[rand(charset.size)] }.join
   end
@@ -100,10 +100,8 @@ class UsuarioController < ApplicationController
     cargo = params[:usuarios][:cargo]
     tel = params[:usuarios][:telefono]
     ntarjeta = params[:usuarios][:tarjeta]
-
-    if Usuario.where("email = ? AND empresa_id = ?", email.to_s, empresa.to_s).blank?
-      pass = generate_activation_code
-      newuser = Usuario.create(nombre: nombre,ntarjeta: ntarjeta,email:email, apellido: apellido, password: pass, password_confirmation: pass, role: "usuario", empresa_id: empresa, cargo: cargo, telefono: tel)
+    pass = generate_activation_code
+    newuser = Usuario.create(nombre: nombre,ntarjeta: ntarjeta,email:email, apellido: apellido, password: pass, password_confirmation: pass, role: "usuario", empresa_id: empresa, cargo: cargo, telefono: tel)
       if newuser.valid?
         begin
           newuser.save
@@ -124,12 +122,5 @@ class UsuarioController < ApplicationController
 
 
       end
-    else
-      flash[:notice] = 'la empresa ya tiene alguien con ese Mail en el sistema'
-      redirect_to :controller => 'usuario', :action => 'create'
-
-
-
-    end
   end
 end
