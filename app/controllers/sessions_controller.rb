@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 
   end
   def auth
-   #begin
+   begin
        email = params[:usuariomail][:email].to_s
        clave =params[:usuariopass].to_s
        puts clave
@@ -52,11 +52,11 @@ class SessionsController < ApplicationController
         redirect_to :root
 
       end
-   #rescue
-      #flash[:notice] = "Esta cuenta no se a encontrado"
+   rescue
+      flash[:notice] = "Esta cuenta no se a encontrado"
 
-      #redirect_to :root
-  # end
+      redirect_to :root
+    end
   end
 
 end
