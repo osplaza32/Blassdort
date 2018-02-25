@@ -49,6 +49,8 @@ body {
     background: #ededed;
     margin: 3.5%;
     width: 92%;
+    height: 0.8em;
+
     font-size: 4em;
     text-align: center;
     border: 1px solid #d5d5d5;
@@ -65,7 +67,7 @@ body {
     font-size: 1.5em;
     text-align: center;
     width: 60px;
-    height: 60px;
+    height: 3em;
     margin: 7px 20px;
     padding: 0;
 }

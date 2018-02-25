@@ -75,18 +75,18 @@ class PuertasController < ApplicationController
   end
   def delete
     a = Puerta.find_by_id(CIPPER.decrypt(params[:data][:puera]))
-    b =Puerta.find_by_id(CIPPER.decrypt(params[:data][:puera])).permisos
-    b.destroy
+    b = Permiso.where('puerta_id = ?',a.id.to_s)
+    b.delete_all
     a.destroy
-    if a.destroyed?
+    if a.destroyed? and !b.any?
       flash[:notice] = 'la Puerta a sido eliminada exitosamente'
       redirect_to :controller => 'puertas', :action => 'get'
 
-    else
+     else
       flash[:notice] = 'la Puerta no pudo ser eliminada'
       redirect_to :controller => 'puertas', :action => 'get'
 
-    end
+     end
 
   end
 

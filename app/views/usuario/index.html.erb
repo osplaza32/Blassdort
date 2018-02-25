@@ -5,6 +5,7 @@
     </div>
 
     <% @idPuertasAllow.each do |id|%>
+      <% if Puerta.find_by_id(id.puerta_id) %>
 
       <div class="widget lazur-bg text-center">
 
@@ -17,6 +18,7 @@
         </p>
 
       </div>
+        <%end%>
 
     <%end%>
 

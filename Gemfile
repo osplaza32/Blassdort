@@ -33,14 +33,15 @@ gem 'mysql2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 gem 'puma'
+gem 'responders', '~> 2.2'
 
 
+gem 'exception_handler', '~> 0.5.1'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 group :development do
-  gem 'meta_request'
   gem 'rename'
 end
 # Use ActiveModel has_secure_password
