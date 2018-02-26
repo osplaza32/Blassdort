@@ -8,12 +8,14 @@
     </thead>
     <tbody>
     <%@idUsuarios.each do |i|%>
+    <% if Usuario.find_by_id(i.usuario_id) %>
     <tr>
       <td>
         <%= if Usuario.find_by_id(i.usuario_id) then Usuario.find_by_id(i.usuario_id).nombre end %>
 
       </td>
     </tr>
+    <%end%>
       <%end%>
     </tbody>
   </table>
