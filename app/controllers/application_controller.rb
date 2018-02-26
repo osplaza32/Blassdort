@@ -49,6 +49,19 @@ class ApplicationController < ActionController::Base
   def file_logo(entrada)
     "#{Empresa.find(entrada).logo}"
   end
+  def render_404
+    redirect_to '/404'
+
+
+  end
+  def render_403
+    redirect_to '/403'
+
+  end
+  def render_500
+    redirect_to '/500'
+
+  end
   private
   def require_login
     unless session.has_key?(:idempresa)

@@ -15,6 +15,11 @@ module BlastDoor
       mqttSub.run
     end
 
+    config.exception_handler = {
+        dev: true,
+        email: "oscarent2@gmail.com"
+    }
+
 
 
 

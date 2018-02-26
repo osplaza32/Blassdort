@@ -3,11 +3,10 @@
   <div class="image" align="center" >
     <%= image_tag"#{@logocompany}", :alt => "BlastDoor" ,size: "100x100"%>
   </div>
-  <div>
 
-  </div>
 
-  <div id="PINcode">
+  <div id="" class="container">
+    <div class="row">
     <%= form_for :usuario, :url => url_for(:controller => 'usuario', :action => 'createpincode'),:html => {:id => "PINform"} do |f| %>
       <p>
         crea tu pincode
@@ -31,7 +30,7 @@
       <%= hidden_field(:signup, :pass_confirm )%>
       <input type='submit' class='PINbutton' name='+' value='Entrar' id='+'  />
       <%end%>
-
+    </div>
   </div></div>
 <script>
     if(navigator.userAgent.match(/Android/i)){

@@ -6,6 +6,6 @@ class UsuarioNotificacionMailer < ApplicationMailer
     @user = user
     @pass = pass
     mail( to:  @user.email,
-          subject: 'Thanks for signing up for our amazing app' )
+          subject: 'BlastDoor app te da la bienvenida!' )
   end
 end

@@ -35,6 +35,11 @@ BlastDoor::Application.routes.draw do
 
   post "permisos/comprobar" => "permisos#comprobar"
 
+  get '/500', :to => redirect('/500.html')
+  get '/403', :to => redirect('/403.html')
+  get '/404', :to => redirect('/404.html')
+
+
 
   # You can have the root of your site routed with "root"
 root to: 'sessions#new'

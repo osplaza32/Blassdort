@@ -16,7 +16,7 @@ gem 'momentjs-rails'
 gem 'fittextjs_rails'
 
 # Use Uglifier as compressor for JavaScript assets
-#gem 'uglifier'
+gem 'uglifier'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '3.1.2'
 # Use CoffeeScript for .js.coffee assets and views
@@ -34,9 +34,10 @@ gem 'mysql2'
 gem 'jbuilder'
 gem 'puma'
 gem 'responders', '~> 2.2'
+gem 'exception_notification'
 
 
-gem 'exception_handler', '~> 0.5.1'
+gem 'exception_handler'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -54,4 +55,5 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]
+# POR AMOR A DIOS TODO RECUERDA SACAR ESTO

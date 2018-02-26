@@ -16,6 +16,12 @@
  *= require dist/dropzone
 
  */
+@media only screen and (max-width: 500px) {
+    #PINform {
+        left: 50%;
+    }
+}
+
 
 body {
     background: #3498db;
@@ -36,8 +42,8 @@ body {
     position: absolute;
     width: auto;
     height: auto;
-    left: 50%;
     margin-left: -200px;
+    left: 40%;
     top: 50%;
     margin-top: -105px;
     padding: 30px;
